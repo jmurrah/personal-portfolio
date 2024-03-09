@@ -4,7 +4,7 @@ import { Home } from './components/Home';
 
 function App() {
   const [message, setMessage] = useState([]);
-  const url = '/test'
+  const url = '/a'
 
   useEffect(() => {
     fetch(url).then(response => {
