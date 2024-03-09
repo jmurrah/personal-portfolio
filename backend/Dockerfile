@@ -22,6 +22,7 @@ EXPOSE 5000
 
 # Set the FLASK_APP environment variable
 ENV FLASK_APP=./backend/api.py
+ENV FLASK_ENV=development
 
 # Command to run the application
 CMD [ "poetry", "run", "flask", "run", "--host=0.0.0.0" ]

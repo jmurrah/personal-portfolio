@@ -5,7 +5,7 @@ FROM node:14-slim
 WORKDIR /app
 
 # Copy package.json and package-lock.json into the Docker image
-COPY package*.json ./
+COPY ./package*.json ./
 
 # Install the application dependencies inside the Docker image
 RUN npm install
