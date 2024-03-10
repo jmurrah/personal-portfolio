@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
-export const Home = ( {data} ) => {
+function Home() {
     return (
         <div>
             <h1>Home</h1>
-            <p>{ data.test }</p>
+            <Link to="/projects">Click to go to projects</Link>
         </div>
     );
 }
+
+export default Home;
