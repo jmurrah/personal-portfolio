@@ -4,7 +4,7 @@ export const Home = ( {data} ) => {
     return (
         <div>
             <h1>Home</h1>
-            <p>{ data.hello }</p>
+            <p>{ data.test }</p>
         </div>
     );
 }

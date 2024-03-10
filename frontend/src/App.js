@@ -4,12 +4,12 @@ import { Home } from './components/Home';
 
 function App() {
   const [message, setMessage] = useState([]);
-  const url = '/a'
+  const url = '/test'
 
   useEffect(() => {
     fetch(url).then(response => {
       if (response.status === 200) {
-        return response.json();
+        return response;
       }
       throw Error('Network request failed.');
     }).then(data => setMessage(data))
