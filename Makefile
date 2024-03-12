@@ -13,3 +13,8 @@ frontend:
 stack:
 	echo "Building stack"
 	docker-compose up
+
+# clean:
+# 	echo "Cleaning up"
+# 	docker rm $(docker ps -aq)
+# 	docker rmi $(docker images -aq)

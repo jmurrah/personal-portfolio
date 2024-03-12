@@ -1,3 +1,4 @@
+import NavBar from "./components/NavBar"
 import { Routes, Route } from "react-router-dom"
 import Home from "./components/Home"
 import About from "./components/Projects"
@@ -5,7 +6,8 @@ import About from "./components/Projects"
 function App() {
   return (
     <div className="App">
-      <h1>My Portfolio</h1>
+      <NavBar />
+      
       <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path="/projects" element={ <About/> } />
