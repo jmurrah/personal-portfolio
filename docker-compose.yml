@@ -2,18 +2,34 @@ version: '3'
 
 services:
   backend:
+    x-develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /app
+        - action: rebuild
+          path: pyproject.toml
     build: ./backend
-    volumes:
-      - ./backend:/app
+    # volumes:
+    #   - ./backend:/app
     ports:
       - "5000:5000"
     environment:
       FLASK_ENV: development
   
   frontend:
+    x-develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
     build: ./frontend
-    volumes:
-      - ./frontend:/app
+    # volumes:
+    #   - ./frontend:/app
     ports:
       - "3000:3000"
     depends_on:

@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Home() {
+function Projects() {
     return (
         <div>
-            <h1>Home</h1>
+            <h1>Projects</h1>
             <p>Coming Soon...</p>
         </div>
     );
 }
 
-export default Home;
+export default Projects;

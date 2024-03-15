@@ -1,25 +1,25 @@
-import './App.css';
-import React, { useState, useEffect } from 'react';
-import { Home } from './components/Home';
+import NavBar from "./components/NavBar"
+import { Routes, Route } from "react-router-dom"
+import Home from "./components/Home"
+import About from "./components/About"
+import Projects from "./components/Projects"
+import Blog from "./components/Blog"
+import Contact from "./components/Contact"
 
 function App() {
-  const [message, setMessage] = useState([]);
-  const url = '/a'
-
-  useEffect(() => {
-    fetch(url).then(response => {
-      if (response.status === 200) {
-        return response.json();
-      }
-      throw Error('Network request failed.');
-    }).then(data => setMessage(data))
-  }, []); // The empty array means this effect runs once after the initial render
-
   return (
     <div className="App">
-      < Home data={message} />
+      <NavBar />
+      
+      <Routes>
+        <Route path="/" element={ <Home/> } />
+        <Route path="/about" element={ <About/> } />
+        <Route path="/projects" element={ <Projects/> } />
+        <Route path="/blog" element={ <Blog/> } />
+        <Route path="/contact" element={ <Contact/> } />
+      </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
