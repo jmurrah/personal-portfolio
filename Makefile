@@ -9,9 +9,14 @@ frontend:
 	@echo "Building frontend"
 	docker build -t frontend ./frontend
 	docker run -p 3000:3000 frontend
-	
-stack:
+
+watch:
+	@echo "Watching stack"
+	docker compose alpha watch
+
+stack: 
 	@echo "Building stack"
+	(make watch &)
 	docker-compose up
 
 clean:
