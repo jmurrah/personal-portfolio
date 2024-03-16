@@ -1,10 +1,10 @@
-import NavBar from "./components/NavBar"
+import NavBar from "./components/NavBar/NavBar"
 import { Routes, Route } from "react-router-dom"
-import Home from "./components/Home"
-import About from "./components/About"
-import Projects from "./components/Projects"
-import Blog from "./components/Blog"
-import Contact from "./components/Contact"
+import Home from "./components/Home/Home"
+import About from "./components/About/About"
+import Projects from "./components/Projects/Projects"
+import Blog from "./components/Blog/Blog"
+import Contact from "./components/Contact/Contact"
 
 function App() {
   return (
