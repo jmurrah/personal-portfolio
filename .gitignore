@@ -25,3 +25,6 @@ frontend/yarn-error.log*
 #backend ignores
 __pycache__
 **/*.pyc
+backend/.venv
+
+.vscode

@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from .database.blog_database import store_to_database
+from .database.blog_table import add_blog_post_to_database
 
 app = Flask(__name__)
 
@@ -8,7 +8,7 @@ app = Flask(__name__)
 def handle_post():
     if request.method == "POST":
         data = request.get_json()
-        store_to_database(data)  # Store the data in a database
+        add_blog_post_to_database(data)  # Store the data in a database
 
         return (
             jsonify({"message": "Data received", "data": data}),
