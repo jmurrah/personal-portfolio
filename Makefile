@@ -17,7 +17,7 @@ watch:
 stack: 
 	@echo "Building stack"
 	(make watch &)
-	docker-compose up
+	./compose.sh
 
 clean:
 	@echo "Cleaning up"

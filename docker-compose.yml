@@ -10,8 +10,10 @@ services:
           ignore:
             - __pycache__/
     build: ./backend
-    # volumes:
-    #   - ./backend:/app
+    image: personal-portfolio-backend
+    volumes:
+      - db_data:/app
+
     ports:
       - "5000:5000"
     environment:
@@ -27,9 +29,10 @@ services:
           ignore:
             - node_modules/
     build: ./frontend
-    # volumes:
-    #   - ./frontend:/app
     ports:
       - "3000:3000"
     depends_on:
       - backend
+
+volumes:
+  db_data:
