@@ -1,5 +1,4 @@
 import sqlite3
-import os
 DB_PATH = "portfolio.db"
 
 def execute_sql_statement(statement):
@@ -8,7 +7,6 @@ def execute_sql_statement(statement):
     cursor.execute(statement)
     conn.commit()
     conn.close()
-    return str(os.getcwd())
 
 def get_table(table):
     conn = sqlite3.connect(DB_PATH)
