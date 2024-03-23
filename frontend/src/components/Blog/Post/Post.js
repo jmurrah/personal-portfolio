@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-function Post() {
+function Post(title, content, likes, timestamp) {
   const titleRef = useRef();
   const contentRef = useRef();
   const [textBoxArea, setTextBoxArea] = useState('');
