@@ -14,17 +14,21 @@ async function getPosts() {
 function Blog() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    getPosts().then(data => setPosts(data));
+    getPosts().then((data) => setPosts(data));
   }, []);
 
   return (
     <div className="flex flex-col items-center">
       <h1>Blog</h1>
       <p>This is where I post about my progress weekly!</p>
-      <Post initTitle="" initContent="" initLikes="0" />  {/*empty post (ONLY DISPLAYED IN DEVELOPMENT) */}
-      {posts.map((post) => 
-        <Post initTitle={post["title"]} initContent={post["content"]} initLikes={post["likes"]} />
-      )}
+      <Post initTitle="" initContent="" initLikes="0" />{' '}
+      {posts.map((post) => (
+        <Post
+          initTitle={post['title']}
+          initContent={post['content']}
+          initLikes={post['likes']}
+        />
+      ))}
     </div>
   );
 }

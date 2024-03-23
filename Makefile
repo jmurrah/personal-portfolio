@@ -24,3 +24,7 @@ clean:
 	if [ "`docker ps -aq`" ]; then docker stop $(shell docker ps -aq); fi
 	if [ "`docker ps -aq`" ]; then docker rm $(shell docker ps -aq); fi
 	if [ "`docker images -aq`" ]; then docker rmi $(shell docker images -aq); fi
+
+format:
+	(cd frontend && yarn format)
+	black .

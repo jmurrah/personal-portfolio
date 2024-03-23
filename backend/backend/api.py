@@ -12,6 +12,7 @@ def insert_into_table(data):
         """
     )
 
+
 # EDIT THIS FUNCTION
 def update_table(data):
     return execute_sql_statement(
@@ -21,6 +22,7 @@ def update_table(data):
         """
     )
 
+
 # EDIT THIS FUNCTION
 def delete_from_table(data):
     return execute_sql_statement(
@@ -29,6 +31,7 @@ def delete_from_table(data):
         VALUES ('{data['title']}', '{data['content']}', {data['likes']})
         """
     )
+
 
 @app.route("/blog", methods=["POST", "GET"])
 def handle_post():
@@ -42,7 +45,14 @@ def handle_post():
         database_action[data["action"]]
 
         return (
-            jsonify({"message": "Data received", "data": data, "table": get_table("Blog"), "row": get_last_row("Blog")}),
+            jsonify(
+                {
+                    "message": "Data received",
+                    "data": data,
+                    "table": get_table("Blog"),
+                    "row": get_last_row("Blog"),
+                }
+            ),
             200,
         )
     elif request.method == "GET":
