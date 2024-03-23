@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import React from 'react';
 import Post from './Post/Post';
 
-function getPosts() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    fetch('/blog')
-      .then(response => response.json())
-      .then(data => setPosts(data))
-      .catch(error => console.error('Error:', error));
-  }, []);
-  
-  return posts;
+async function getPosts() {
+  try {
+    const response = await fetch('/blog');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 function Blog() {
-  const posts = getPosts();
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    getPosts().then(data => setPosts(data));
+  }, []);
+
   return (
     <div className="flex flex-col items-center">
       <h1>Blog</h1>
       <p>This is where I post about my progress weekly!</p>
-      <Post />
-      {posts.map((post, index) => 
-        <Post key={index} title={post.title} content={post.content} />
+      <Post initTitle="" initContent="" initLikes="0" />  {/*empty post (ONLY DISPLAYED IN DEVELOPMENT) */}
+      {posts.map((post) => 
+        <Post initTitle={post["title"]} initContent={post["content"]} initLikes={post["likes"]} />
       )}
     </div>
   );

@@ -4,30 +4,54 @@ from .database.database import execute_sql_statement, get_table, get_last_row
 app = Flask(__name__)
 
 
+def insert_into_table(data):
+    return execute_sql_statement(
+        f"""
+        INSERT INTO Blog (title, content, likes)
+        VALUES ('{data['title']}', '{data['content']}', {data['likes']})
+        """
+    )
+
+# EDIT THIS FUNCTION
+def update_table(data):
+    return execute_sql_statement(
+        f"""
+        INSERT INTO Blog (title, content, likes)
+        VALUES ('{data['title']}', '{data['content']}', {data['likes']})
+        """
+    )
+
+# EDIT THIS FUNCTION
+def delete_from_table(data):
+    return execute_sql_statement(
+        f"""
+        INSERT INTO Blog (title, content, likes)
+        VALUES ('{data['title']}', '{data['content']}', {data['likes']})
+        """
+    )
+
 @app.route("/blog", methods=["POST", "GET"])
 def handle_post():
     if request.method == "POST":
-        data = request.get_json()
-        execute_sql_statement(
-            f"""
-            INSERT INTO Blog (title, content, likes)
-            VALUES ('{data['title']}', '{data['content']}', {data['likes']})
-            """
-        )  # Store the data in a database
-        
-        return (
-            jsonify({"message": "Data received", "data": data, "cwd": cwd, "table": get_table("Blog")}),
-            200,
-        )  # Send a response back to the client that includes the data received
+        data = request.json
+        database_action = {
+            "insert": insert_into_table(data),
+            "update": update_table(data),
+            "delete": delete_from_table(data),
+        }
+        database_action[data["action"]]
 
+        return (
+            jsonify({"message": "Data received", "data": data, "table": get_table("Blog"), "row": get_last_row("Blog")}),
+            200,
+        )
     elif request.method == "GET":
-        # Return all the data from the blog database
-        return jsonify({"message": "Hello"}), 200
+        return jsonify(get_table("Blog")), 200
 
 
 @app.route("/", methods=["GET"])
 def home():
-    return "Hello, World!"
+    return "test, World!"
 
 
 if __name__ == "__main__":
