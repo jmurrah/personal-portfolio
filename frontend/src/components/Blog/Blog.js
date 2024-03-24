@@ -13,8 +13,13 @@ async function getPosts() {
 
 function Blog() {
   const [posts, setPosts] = useState([]);
+  const [hasRenderedPosts, setHasRenderedPosts] = useState(false);
+
   useEffect(() => {
-    getPosts().then((data) => setPosts(data));
+    getPosts().then((data) => {
+      setPosts(data)
+      setHasRenderedPosts(true);
+    });
   }, []);
 
   return (
@@ -22,8 +27,10 @@ function Blog() {
       <h1>Blog</h1>
       <p>This is where I post about my progress weekly!</p>
       <Post initTitle="" initContent="" initLikes="0" />{' '}
-      {posts.map((post) => (
+
+      {hasRenderedPosts && posts.map((post) => (
         <Post
+          id = {post['id']}
           initTitle={post['title']}
           initContent={post['content']}
           initLikes={post['likes']}

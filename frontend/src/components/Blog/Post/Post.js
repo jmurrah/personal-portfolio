@@ -20,7 +20,7 @@ function postToDatabase(title, content, likes, action) {
     .catch((error) => console.error('Error:', error));
 }
 
-function Post({ initTitle, initContent, initLikes }) {
+function Post({ id, initTitle, initContent, initLikes }) {
   const [title, setTitle] = useState(initTitle);
   const [content, setContent] = useState(initContent);
   const [likes, setLikes] = useState(initLikes);
@@ -55,11 +55,11 @@ function Post({ initTitle, initContent, initLikes }) {
       </div>
 
       {/* the above will be consistent with all posts. The below will be unique to each post. */}
-      {!title && !content && (
+      {(
         <div className="flex justify-end m-6">
           <button
             className="px-4 py-2 text-lg rounded-lg bg-green-500"
-            // onClick={postToDatabase(title, content, 0, 'insert')}
+            onClick={() => postToDatabase(title, content, 0, 'insert')}
           >
             Post
           </button>

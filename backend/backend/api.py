@@ -27,8 +27,7 @@ def update_table(data):
 def delete_from_table(data):
     return execute_sql_statement(
         f"""
-        INSERT INTO Blog (title, content, likes)
-        VALUES ('{data['title']}', '{data['content']}', {data['likes']})
+        DELETE FROM Blog
         """
     )
 
@@ -42,7 +41,7 @@ def handle_post():
             "update": update_table(data),
             "delete": delete_from_table(data),
         }
-        database_action[data["action"]]
+        x = database_action[data["action"]]
 
         return (
             jsonify(
@@ -51,6 +50,7 @@ def handle_post():
                     "data": data,
                     "table": get_table("Blog"),
                     "row": get_last_row("Blog"),
+                    "status": str(x)
                 }
             ),
             200,
