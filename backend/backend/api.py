@@ -50,7 +50,7 @@ def handle_post():
                     "data": data,
                     "table": get_table("Blog"),
                     "row": get_last_row("Blog"),
-                    "status": str(x)
+                    "status": str(x),
                 }
             ),
             200,

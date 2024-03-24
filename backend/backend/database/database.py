@@ -18,7 +18,7 @@ def get_table(table):
     cursor = conn.cursor()
     cursor.execute(f"SELECT * FROM {table}")
     all_rows = cursor.fetchall()
-    return [dict(row) for row in reversed(all_rows)]
+    return [dict(row) for row in all_rows]
 
 
 def get_last_row(table):

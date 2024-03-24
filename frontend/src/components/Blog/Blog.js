@@ -17,7 +17,7 @@ function Blog() {
 
   useEffect(() => {
     getPosts().then((data) => {
-      setPosts(data)
+      setPosts(data);
       setHasRenderedPosts(true);
     });
   }, []);
@@ -26,16 +26,12 @@ function Blog() {
     <div className="flex flex-col items-center">
       <h1>Blog</h1>
       <p>This is where I post about my progress weekly!</p>
-      <Post initTitle="" initContent="" initLikes="0" />{' '}
-
-      {hasRenderedPosts && posts.map((post) => (
-        <Post
-          id = {post['id']}
-          initTitle={post['title']}
-          initContent={post['content']}
-          initLikes={post['likes']}
-        />
-      ))}
+      <Post /> {/* This is the post form */}
+      {hasRenderedPosts &&
+        posts
+          .slice()
+          .reverse()
+          .map((post) => <Post {...post} setPosts={setPosts} />)}
     </div>
   );
 }

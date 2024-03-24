@@ -20,10 +20,10 @@ function postToDatabase(title, content, likes, action) {
     .catch((error) => console.error('Error:', error));
 }
 
-function Post({ id, initTitle, initContent, initLikes }) {
-  const [title, setTitle] = useState(initTitle);
-  const [content, setContent] = useState(initContent);
-  const [likes, setLikes] = useState(initLikes);
+function Post({ post, setPosts }) {
+  const [title, setTitle] = useState(post.title);
+  const [content, setContent] = useState(post.content);
+  const [likes, setLikes] = useState(post.likes);
   const [isDisabled, setDisabled] = useState(false);
 
   return (
@@ -55,18 +55,30 @@ function Post({ id, initTitle, initContent, initLikes }) {
       </div>
 
       {/* the above will be consistent with all posts. The below will be unique to each post. */}
-      {(
+      {
         <div className="flex justify-end m-6">
           <button
             className="px-4 py-2 text-lg rounded-lg bg-green-500"
-            onClick={() => postToDatabase(title, content, 0, 'insert')}
+            onClick={() => {
+              postToDatabase(title, content, 0, 'insert');
+              setPosts((prevPosts) => [...prevPosts, newPost]);
+            }}
           >
             Post
           </button>
         </div>
-      )}
+      }
     </div>
   );
 }
+
+Post.defaultProps = {
+  id: getLastId() + 1,
+  time: Date.now(),
+  initTitle: 'default title',
+  initContent: 'default content',
+  initLikes: 0,
+  setPosts: () => {}, // Default function that does nothing
+};
 
 export default Post;
