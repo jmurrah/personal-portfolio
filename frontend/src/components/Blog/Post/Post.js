@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-function postToDatabase(title, content, likes, action) {
+function sendToAPI(title, content, likes, action) {
   console.log('Post button pressed!');
   fetch('/blog', {
     method: 'POST',
@@ -16,11 +16,26 @@ function postToDatabase(title, content, likes, action) {
     }),
   })
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
     .catch((error) => console.error('Error:', error));
 }
 
-function Post({ post, setPosts }) {
+Post.defaultProps = {
+  id: -1,
+  post: {
+    id: -1,
+    time: '',
+    title: '',
+    content: '',
+    likes: 0,
+  },
+  setPosts: () => {}, // Default function that does nothing
+};
+
+function Post({ id, post, setPosts }) {
   const [title, setTitle] = useState(post.title);
   const [content, setContent] = useState(post.content);
   const [likes, setLikes] = useState(post.likes);
@@ -38,7 +53,7 @@ function Post({ post, setPosts }) {
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          disabled={title && content}
+          // disabled={title && content}
         />
         <textarea
           className={classNames(
@@ -50,7 +65,7 @@ function Post({ post, setPosts }) {
           value={content}
           onChange={(e) => setContent(e.target.value)}
           // rows={content.split('\n').length}
-          disabled={title && content}
+          // disabled={title && content}
         />
       </div>
 
@@ -60,8 +75,8 @@ function Post({ post, setPosts }) {
           <button
             className="px-4 py-2 text-lg rounded-lg bg-green-500"
             onClick={() => {
-              postToDatabase(title, content, 0, 'insert');
-              setPosts((prevPosts) => [...prevPosts, newPost]);
+              sendToAPI(title, content, 0, 'insert');
+              setPosts((prevPosts) => [...prevPosts, post]);
             }}
           >
             Post
@@ -71,14 +86,5 @@ function Post({ post, setPosts }) {
     </div>
   );
 }
-
-Post.defaultProps = {
-  id: getLastId() + 1,
-  time: Date.now(),
-  initTitle: 'default title',
-  initContent: 'default content',
-  initLikes: 0,
-  setPosts: () => {}, // Default function that does nothing
-};
 
 export default Post;

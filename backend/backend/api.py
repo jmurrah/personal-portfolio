@@ -32,16 +32,21 @@ def delete_from_table(data):
     )
 
 
+def perform_db_action(data):
+    if data["action"] == "insert":
+        return insert_into_table(data)
+    elif data["action"] == "update":
+        return update_table(data)
+    elif data["action"] == "delete":
+        return delete_from_table(data)
+    else:
+        return False
+
 @app.route("/blog", methods=["POST", "GET"])
 def handle_post():
     if request.method == "POST":
         data = request.json
-        database_action = {
-            "insert": insert_into_table(data),
-            "update": update_table(data),
-            "delete": delete_from_table(data),
-        }
-        x = database_action[data["action"]]
+        status = perform_db_action(data)
 
         return (
             jsonify(
@@ -50,7 +55,7 @@ def handle_post():
                     "data": data,
                     "table": get_table("Blog"),
                     "row": get_last_row("Blog"),
-                    "status": str(x),
+                    "status": status,
                 }
             ),
             200,

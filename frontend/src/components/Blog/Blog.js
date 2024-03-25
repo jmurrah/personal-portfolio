@@ -11,6 +11,13 @@ async function getPosts() {
   }
 }
 
+function getLastId(posts) {
+  if (posts.length === 0) {
+    return 0;
+  }
+  return posts[posts.length - 1].id;
+}
+
 function Blog() {
   const [posts, setPosts] = useState([]);
   const [hasRenderedPosts, setHasRenderedPosts] = useState(false);
@@ -26,12 +33,12 @@ function Blog() {
     <div className="flex flex-col items-center">
       <h1>Blog</h1>
       <p>This is where I post about my progress weekly!</p>
-      <Post /> {/* This is the post form */}
+      <Post id={getLastId(posts)} /> 
       {hasRenderedPosts &&
         posts
           .slice()
           .reverse()
-          .map((post) => <Post {...post} setPosts={setPosts} />)}
+          .map((post) => <Post id={getLastId(posts)} {...post} setPosts={setPosts} />)}
     </div>
   );
 }
