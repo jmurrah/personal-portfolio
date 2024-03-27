@@ -25,7 +25,6 @@ function Blog() {
   useEffect(() => {
     getPosts().then((data) => {
       setPosts(data);
-      setHasRenderedPosts(true);
     });
   }, []);
 
@@ -33,12 +32,24 @@ function Blog() {
     <div className="flex flex-col items-center">
       <h1>Blog</h1>
       <p>This is where I post about my progress weekly!</p>
-      <Post id={getLastId(posts)} /> 
-      {hasRenderedPosts &&
-        posts
-          .slice()
-          .reverse()
-          .map((post) => <Post id={getLastId(posts)} {...post} setPosts={setPosts} />)}
+      <Post key={getLastId(posts)} />
+      {posts
+        .slice()
+        .reverse()
+        .map((post) => {
+          if (!hasRenderedPosts[post.id]) {
+            setHasRenderedPosts[post.id] = true;
+            return (
+              <Post
+                key={post.id}
+                {...post}
+                setPosts={setPosts}
+                hasRenderedPost={hasRenderedPosts[post.id]}
+              />
+            );
+          }
+          return null;
+        })}
     </div>
   );
 }

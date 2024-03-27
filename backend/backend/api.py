@@ -42,6 +42,7 @@ def perform_db_action(data):
     else:
         return False
 
+
 @app.route("/blog", methods=["POST", "GET"])
 def handle_post():
     if request.method == "POST":

@@ -24,7 +24,7 @@ function sendToAPI(title, content, likes, action) {
 }
 
 Post.defaultProps = {
-  id: -1,
+  key: -1,
   post: {
     id: -1,
     time: '',
@@ -33,44 +33,46 @@ Post.defaultProps = {
     likes: 0,
   },
   setPosts: () => {}, // Default function that does nothing
+  hasRenderedPost: false,
 };
 
-function Post({ id, post, setPosts }) {
+function Post({ key, post, setPosts, hasRenderedPost }) {
   const [title, setTitle] = useState(post.title);
   const [content, setContent] = useState(post.content);
   const [likes, setLikes] = useState(post.likes);
   const [isDisabled, setDisabled] = useState(false);
-
+  console.log(key);
+  console.log(post);
   return (
     <div className="m-6 w-3/5 h-auto rounded-lg bg-purple-500">
       <p className="mx-6 mt-2 mb-2">Jacob Murrah</p>
       <div className="flex flex-col justify-center mx-6 mb-6">
         <textarea
           className={classNames('w-full h-10 mb-2 rounded-lg pl-1.5', {
-            'disabled-textarea': title && content,
+            'disabled-textarea': isDisabled,
           })}
           type="text"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          // disabled={title && content}
+          disabled={isDisabled}
         />
         <textarea
           className={classNames(
             'w-full min-h-50 h-auto rounded-lg pl-1.5 overflow-auto scrollbar-hide',
-            { 'disabled-textarea': title && content }
+            { 'disabled-textarea': isDisabled }
           )}
           type="text"
           placeholder="Entry"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          // rows={content.split('\n').length}
-          // disabled={title && content}
+          rows={content.split('\n').length}
+          disabled={isDisabled}
         />
       </div>
 
       {/* the above will be consistent with all posts. The below will be unique to each post. */}
-      {
+      {!isDisabled && (
         <div className="flex justify-end m-6">
           <button
             className="px-4 py-2 text-lg rounded-lg bg-green-500"
@@ -82,7 +84,7 @@ function Post({ id, post, setPosts }) {
             Post
           </button>
         </div>
-      }
+      )}
     </div>
   );
 }
