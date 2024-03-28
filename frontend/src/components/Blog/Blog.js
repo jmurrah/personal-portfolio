@@ -20,19 +20,22 @@ function getLastId(posts) {
 
 function Blog() {
   const [posts, setPosts] = useState([]);
-  const [hasRenderedPosts, setHasRenderedPosts] = useState(false);
+  const [fetchPostsTrigger, setFetchPostsTrigger] = useState(0);
 
   useEffect(() => {
     getPosts().then((data) => {
       setPosts(data);
     });
-  }, []);
+  }, [fetchPostsTrigger]);
 
   return (
     <div className="flex flex-col items-center">
       <h1>Blog</h1>
       <p>This is where I post about my progress weekly!</p>
-      <Post key={getLastId(posts)} />
+      <Post
+        key={getLastId(posts)}
+        setFetchPostsTrigger={setFetchPostsTrigger}
+      />
       {posts
         .slice()
         .reverse()
@@ -41,8 +44,8 @@ function Blog() {
             <Post
               key={post.id}
               post={post}
-              setPosts={setPosts}
               initialIsDisabled={true}
+              setFetchPostsTrigger={setFetchPostsTrigger}
             />
           );
         })}

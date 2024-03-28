@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-function sendToAPI(title, content, likes, action) {
-  console.log('Post button pressed!');
-  fetch('/blog', {
+async function sendToAPI(title, content, likes, action) {
+  return fetch('/blog', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -31,17 +30,16 @@ Post.defaultProps = {
     content: '',
     likes: 0,
   },
-  setPosts: () => {}, // Default function that does nothing
-  hasRenderedPost: false,
+  initialIsDisabled: false,
 };
 
-function Post({ post, setPosts, initialIsDisabled }) {
+function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
   console.log(post);
   const [title, setTitle] = useState(post.title);
   const [content, setContent] = useState(post.content);
   const [likes, setLikes] = useState(post.likes);
   const [isDisabled, setDisabled] = useState(initialIsDisabled);
-  
+
   return (
     <div className="m-6 w-3/5 h-auto rounded-lg bg-purple-500">
       <p className="mx-6 mt-2 mb-2">Jacob Murrah</p>
@@ -75,9 +73,9 @@ function Post({ post, setPosts, initialIsDisabled }) {
         <div className="flex justify-end m-6">
           <button
             className="px-4 py-2 text-lg rounded-lg bg-green-500"
-            onClick={() => {
-              sendToAPI(title, content, 0, 'insert');
-              setPosts((prevPosts) => [...prevPosts, post]);
+            onClick={async () => {
+              await sendToAPI(title, content, 0, 'insert');
+              setFetchPostsTrigger((prev) => prev + 1);
             }}
           >
             Post
