@@ -34,7 +34,6 @@ Post.defaultProps = {
 };
 
 function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
-  console.log(post);
   const [title, setTitle] = useState(post.title);
   const [content, setContent] = useState(post.content);
   const [likes, setLikes] = useState(post.likes);
@@ -42,7 +41,9 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
 
   return (
     <div className="m-6 w-3/5 h-auto rounded-lg bg-purple-500">
-      <p className="mx-6 mt-2 mb-2">Jacob Murrah</p>
+      <p className="mx-6 mt-2 mb-2">
+        Jacob Murrah @jmurrah {post.time} {likes} likes
+      </p>
       <div className="flex flex-col justify-center mx-6 mb-6">
         <textarea
           className={classNames('w-full h-10 mb-2 rounded-lg pl-1.5', {
