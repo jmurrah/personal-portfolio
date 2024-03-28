@@ -24,7 +24,6 @@ function sendToAPI(title, content, likes, action) {
 }
 
 Post.defaultProps = {
-  key: -1,
   post: {
     id: -1,
     time: '',
@@ -36,13 +35,13 @@ Post.defaultProps = {
   hasRenderedPost: false,
 };
 
-function Post({ key, post, setPosts, hasRenderedPost }) {
+function Post({ post, setPosts, initialIsDisabled }) {
+  console.log(post);
   const [title, setTitle] = useState(post.title);
   const [content, setContent] = useState(post.content);
   const [likes, setLikes] = useState(post.likes);
-  const [isDisabled, setDisabled] = useState(false);
-  console.log(key);
-  console.log(post);
+  const [isDisabled, setDisabled] = useState(initialIsDisabled);
+  
   return (
     <div className="m-6 w-3/5 h-auto rounded-lg bg-purple-500">
       <p className="mx-6 mt-2 mb-2">Jacob Murrah</p>

@@ -37,18 +37,14 @@ function Blog() {
         .slice()
         .reverse()
         .map((post) => {
-          if (!hasRenderedPosts[post.id]) {
-            setHasRenderedPosts[post.id] = true;
-            return (
-              <Post
-                key={post.id}
-                {...post}
-                setPosts={setPosts}
-                hasRenderedPost={hasRenderedPosts[post.id]}
-              />
-            );
-          }
-          return null;
+          return (
+            <Post
+              key={post.id}
+              post={post}
+              setPosts={setPosts}
+              initialIsDisabled={true}
+            />
+          );
         })}
     </div>
   );
