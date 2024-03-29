@@ -3,7 +3,7 @@ import sqlite3
 DB_PATH = "/app/backend/database/portfolio.db"
 
 
-def execute_sql_statement(statement):
+def execute_sql_statement(statement) -> bool:
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute(statement)
@@ -12,7 +12,7 @@ def execute_sql_statement(statement):
     return True
 
 
-def get_table(table):
+def get_table(table) -> list[dict]:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
@@ -21,7 +21,7 @@ def get_table(table):
     return [dict(row) for row in all_rows]
 
 
-def get_last_row(table):
+def get_last_row(table) -> dict:
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute(f"SELECT * FROM {table} ORDER BY id DESC LIMIT 1")
