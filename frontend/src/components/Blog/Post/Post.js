@@ -46,9 +46,12 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
       </p>
       <div className="flex flex-col justify-center mx-6 mb-6">
         <textarea
-          className={classNames('text-purple-400 w-full h-10 mb-2 rounded-lg pl-1.5', {
-            'disabled-textarea': isDisabled,
-          })}
+          className={classNames(
+            'text-purple-400 w-full h-10 mb-2 rounded-lg pl-1.5',
+            {
+              'disabled-textarea': isDisabled,
+            }
+          )}
           type="text"
           placeholder="Title"
           value={title}
