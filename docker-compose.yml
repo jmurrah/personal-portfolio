@@ -11,9 +11,6 @@ services:
             - __pycache__/
     build: ./backend
     image: personal-portfolio-backend
-    volumes:
-      - db_data:/app
-
     ports:
       - "5000:5000"
     environment:
@@ -34,5 +31,3 @@ services:
     depends_on:
       - backend
 
-volumes:
-  db_data:
