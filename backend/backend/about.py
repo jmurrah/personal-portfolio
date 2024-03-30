@@ -51,6 +51,7 @@ def get_user_languages(username: str) -> dict:
 
 
 # ADD FUNCTION TO CHECK WHAT REPOS HAVE BEEN CHANGED SINCE LAST CHECK
+# store time to DB and read from db to check if repo has been updated since last check
 if __name__ == "__main__":
     languages = get_user_languages("jmurrah")
     print(languages)

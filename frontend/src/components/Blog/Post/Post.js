@@ -40,14 +40,14 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
   const [isDisabled, setDisabled] = useState(initialIsDisabled);
 
   return (
-    <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-bg-purple-900">
+    <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black  tw-bg-purple-900">
       <p className="tw-mx-6 tw-mt-2 tw-mb-2 tw-text-white">
         Jacob Murrah @jmurrah {post.time} {likes} likes
       </p>
       <div className="tw-flex tw-flex-col tw-justify-center tw-mx-6 tw-mb-6">
         <textarea
           className={classNames(
-            'tw-text-purple-400 tw-w-full tw-h-10 tw-mb-2 tw-rounded-lg tw-pl-1.5',
+            'tw-w-full tw-h-10 tw-mb-2 tw-rounded-lg tw-pl-1.5',
             {
               'disabled-textarea': isDisabled,
             }

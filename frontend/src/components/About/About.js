@@ -11,16 +11,21 @@ async function getLanguages() {
   }
 }
 
+function getRandomColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
+
 function About() {
   const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
-    getLanguages().then(data => {
+    getLanguages().then((data) => {
       setLanguages(data);
     });
   }, []);
-  const total_lines = languages["Total"];
-  
+
+  const total_lines = languages['Total'];
+  let percentage = (value) => (value / total_lines) * 100;
 
   return (
     <div>
@@ -30,14 +35,19 @@ function About() {
           {key}: {value}
         </div>
       ))}
-      <Progress/>
-      <div className="tw-space-y-2">
-        {Object.entries(languages).map(([key, value]) => {
-          return (
-            // <div style={{width: `${(value / total_lines) * 100}%`}} className="h-full bg-green-500 rounded"></div>
-            <p>hello</p>
-          );
-        })}
+
+      <div style={{ display: 'flex', height: 20 }}>
+      {Object.entries(languages)
+        .filter(([key, value]) => key !== 'Total')
+        .map(([key, value], index) => (
+          <div
+            key={index}
+            style={{
+              width: `${percentage(value)}%`,
+              backgroundColor: getRandomColor(),
+            }}
+          />
+        ))}
       </div>
     </div>
   );
