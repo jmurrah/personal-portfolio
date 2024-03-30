@@ -9,7 +9,7 @@ function Contact() {
       <p>
         LinkedIn:{' '}
         <a
-          className="text-green-700"
+          className="tw-text-green-700"
           href="https://www.linkedin.com/in/jacobmurrah/"
           target="_blank"
           rel="noopener noreferrer"
@@ -20,7 +20,7 @@ function Contact() {
       <p>
         GitHub:{' '}
         <a
-          className="text-green-700"
+          className="tw-text-green-700"
           href="https://github.com/jmurrah"
           target="_blank"
           rel="noopener noreferrer"
@@ -31,7 +31,7 @@ function Contact() {
       <p>
         LeetCode:{' '}
         <a
-          className="text-green-700"
+          className="tw-text-green-700"
           href="https://leetcode.com/jacobhmurrah/"
           target="_blank"
           rel="noopener noreferrer"

@@ -40,14 +40,14 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
   const [isDisabled, setDisabled] = useState(initialIsDisabled);
 
   return (
-    <div className="m-6 w-3/5 h-auto rounded-lg bg-purple-900">
-      <p className="mx-6 mt-2 mb-2 text-white">
+    <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-bg-purple-900">
+      <p className="tw-mx-6 tw-mt-2 tw-mb-2 tw-text-white">
         Jacob Murrah @jmurrah {post.time} {likes} likes
       </p>
-      <div className="flex flex-col justify-center mx-6 mb-6">
+      <div className="tw-flex tw-flex-col tw-justify-center tw-mx-6 tw-mb-6">
         <textarea
           className={classNames(
-            'text-purple-400 w-full h-10 mb-2 rounded-lg pl-1.5',
+            'tw-text-purple-400 tw-w-full tw-h-10 tw-mb-2 tw-rounded-lg tw-pl-1.5',
             {
               'disabled-textarea': isDisabled,
             }
@@ -60,7 +60,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
         />
         <textarea
           className={classNames(
-            'w-full min-h-50 h-auto rounded-lg pl-1.5 overflow-auto scrollbar-hide',
+            'tw-w-full tw-min-h-50 tw-h-auto tw-rounded-lg tw-pl-1.5 tw-overflow-auto tw-scrollbar-hide',
             { 'disabled-textarea': isDisabled }
           )}
           type="text"
@@ -74,9 +74,9 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
 
       {/* the above will be consistent with all posts. The below will be unique to each post. */}
       {!isDisabled && (
-        <div className="flex justify-end m-6">
+        <div className="tw-flex tw-justify-end tw-m-6">
           <button
-            className="px-4 py-2 text-lg rounded-lg bg-green-500"
+            className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
             onClick={async () => {
               await sendToAPI(title, content, 0, 'insert');
               setFetchPostsTrigger((prev) => prev + 1);

@@ -29,7 +29,7 @@ function Blog() {
   }, [fetchPostsTrigger]);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="tw-flex tw-flex-col tw-items-center">
       <h1>Blog</h1>
       <p>This is where I post about my progress weekly!</p>
       <Post
