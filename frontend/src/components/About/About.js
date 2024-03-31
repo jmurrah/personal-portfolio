@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Progress from './progress.jsx';
 
 async function getLanguages() {
   try {
@@ -37,17 +36,27 @@ function About() {
       ))}
 
       <div style={{ display: 'flex', height: 20 }}>
-      {Object.entries(languages)
-        .filter(([key, value]) => key !== 'Total')
-        .map(([key, value], index) => (
-          <div
-            key={index}
-            style={{
-              width: `${percentage(value)}%`,
-              backgroundColor: getRandomColor(),
-            }}
-          />
-        ))}
+        {Object.entries(languages)
+          .filter(([key, value]) => key !== 'Total')
+          .map(([key, value], index) => (
+            <div
+              key={index}
+              style={{
+                width: `${percentage(value).toFixed(1)}%`,
+                backgroundColor: getRandomColor(),
+              }}
+            />
+          ))}
+      </div>
+
+      <div>
+        {Object.entries(languages)
+          .filter(([key, value]) => key !== 'Total')
+          .map(([key, value]) => (
+            <div key={key}>
+              {key}: {percentage(value).toFixed(1)}%
+            </div>
+          ))}
       </div>
     </div>
   );
