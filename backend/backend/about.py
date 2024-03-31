@@ -1,8 +1,4 @@
 import requests
-import logging
-
-logging.basicConfig(level=logging.DEBUG)
-
 
 def add_two_dicts(dict1: dict, dict2: dict) -> dict:
     result = dict1.copy()
@@ -10,9 +6,9 @@ def add_two_dicts(dict1: dict, dict2: dict) -> dict:
     for key, value in dict2.items():
         result["Total"] += value
         if key in result:
-            result[key] += value
+            result[key]["lines"] += value
         else:
-            result[key] = value
+            result[key] = {"lines": value}
 
     return result
 
@@ -22,6 +18,12 @@ def add_languages(repo_list: list[dict]) -> dict:
 
     for repo in repo_list:
         result = add_two_dicts(result, repo)
+
+    for key in result:
+        if key != "Total":
+            result[key]["percentage"] = "{:.1f}".format(round(result[key]["lines"] / result["Total"], 3) * 100)
+    
+    result["Percentages"] = sorted([result[key]["percentage"] for key in result if key != "Total"])
 
     return result
 

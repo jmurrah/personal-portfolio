@@ -23,26 +23,17 @@ function About() {
     });
   }, []);
 
-  const total_lines = languages['Total'];
-  let percentage = (value) => (value / total_lines) * 100;
-
   return (
     <div>
       <h1>About</h1>
-      {Object.entries(languages).map(([key, value]) => (
-        <div key={key}>
-          {key}: {value}
-        </div>
-      ))}
-
       <div style={{ display: 'flex', height: 20 }}>
         {Object.entries(languages)
-          .filter(([key, value]) => key !== 'Total')
+          .filter(([key, value]) => key !== 'Total' && key !== 'Percentages')
           .map(([key, value], index) => (
             <div
               key={index}
               style={{
-                width: `${percentage(value).toFixed(1)}%`,
+                width: `${value['percentage']}%`,
                 backgroundColor: getRandomColor(),
               }}
             />
@@ -51,10 +42,10 @@ function About() {
 
       <div>
         {Object.entries(languages)
-          .filter(([key, value]) => key !== 'Total')
+          .filter(([key, value]) => key !== 'Total' && key !== 'Percentages')
           .map(([key, value]) => (
             <div key={key}>
-              {key}: {percentage(value).toFixed(1)}%
+              {key}: {value['percentage']}%
             </div>
           ))}
       </div>
