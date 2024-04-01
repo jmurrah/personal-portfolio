@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "../../../components/ui/menubar";
 
-async function sendToAPI(title, content, likes, action) {
+
+async function sendToAPI(id=-1, title='', content='', likes=0, action='none') {
   return fetch('/blog', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
+      id: id,
       title: title,
       content: content,
       likes: likes, //add method to get the likes
@@ -34,6 +45,7 @@ Post.defaultProps = {
 };
 
 function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
+  const id = post.id;
   const [title, setTitle] = useState(post.title);
   const [content, setContent] = useState(post.content);
   const [likes, setLikes] = useState(post.likes);
@@ -42,8 +54,32 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
   return (
     <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black  tw-bg-purple-900">
       <p className="tw-mx-6 tw-mt-2 tw-mb-2 tw-text-white">
-        Jacob Murrah @jmurrah {post.time} {likes} likes
+        Jacob Murrah @jmurrah {post.time} {likes} likes 
       </p>
+      <Menubar className="tw-w-14">
+        <MenubarMenu>
+          <MenubarTrigger>. . .</MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem>
+              Edit
+            </MenubarItem>
+            <MenubarItem>
+              Delete
+            </MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+
+      <button
+            className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
+            onClick={async () => {
+              await sendToAPI(id, likes + 1, 'update_likes');
+              setLikes((prev) => prev + 1);
+            }}
+          >
+            Like
+      </button>
+
       <div className="tw-flex tw-flex-col tw-justify-center tw-mx-6 tw-mb-6">
         <textarea
           className={classNames(
@@ -78,7 +114,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
           <button
             className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
             onClick={async () => {
-              await sendToAPI(title, content, 0, 'insert');
+              await sendToAPI(title, content, 'insert');
               setFetchPostsTrigger((prev) => prev + 1);
             }}
           >
