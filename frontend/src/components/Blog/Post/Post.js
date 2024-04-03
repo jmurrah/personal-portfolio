@@ -11,17 +11,17 @@ import {
 } from "../../../components/ui/menubar";
 
 
-async function sendToAPI({id = -1, title = '', content = '', likes = 0, action = 'none'}) {
+async function sendToAPI({post, action = 'none'}) {
   return fetch('/blog', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      id: id,
-      title: title,
-      content: content,
-      likes: likes, //add method to get the likes
+      id: post.id,
+      title: post.title,
+      content: post.content,
+      likes: post.likes, //add method to get the likes
       action: action,
     }),
   })
@@ -45,24 +45,18 @@ Post.defaultProps = {
 };
 
 function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
-  // const [postState, setPostState] = useState({
-  //   id: post.id,
-  //   title: post.title,
-  //   content: post.content,
-  //   likes: post.likes,
-  //   isDisabled: initialIsDisabled
-  // });
-
-  const id = post.id;
-  const [title, setTitle] = useState(post.title);
-  const [content, setContent] = useState(post.content);
-  const [likes, setLikes] = useState(post.likes);
-  const [isDisabled, setDisabled] = useState(initialIsDisabled);
+  const [postState, setPostState] = useState({
+    id: post.id,
+    title: post.title,
+    content: post.content,
+    likes: post.likes,
+    isDisabled: initialIsDisabled
+  });
 
   return (
     <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black  tw-bg-purple-900">
       <p className="tw-mx-6 tw-mt-2 tw-mb-2 tw-text-white">
-        Jacob Murrah @jmurrah {post.time} {likes} likes 
+        Jacob Murrah @jmurrah {postState.time} {postState.likes} likes 
       </p>
       <Menubar className="tw-w-14">
         <MenubarMenu>
@@ -81,8 +75,8 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
       <button
             className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
             onClick={async () => {
-              await sendToAPI({id: id, title: title, content: content, likes: likes + 1, action: 'update'});
-              setLikes((prev) => prev + 1);
+              setPostState(prevState => ({...prevState, likes: postState.likes + 1}));
+              await sendToAPI({post: postState, action: 'update'});
             }}
           >
             Like
@@ -93,36 +87,36 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
           className={classNames(
             'tw-w-full tw-h-10 tw-mb-2 tw-rounded-lg tw-pl-1.5',
             {
-              'disabled-textarea': isDisabled,
+              'disabled-textarea': postState.isDisabled,
             }
           )}
           type="text"
           placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          disabled={isDisabled}
+          value={postState.title}
+          onChange={(e) => setPostState(prevState => ({...prevState, title: e.target.value}))}
+          disabled={postState.isDisabled}
         />
         <textarea
           className={classNames(
             'tw-w-full tw-min-h-50 tw-h-auto tw-rounded-lg tw-pl-1.5 tw-overflow-auto tw-scrollbar-hide',
-            { 'disabled-textarea': isDisabled }
+            { 'disabled-textarea': postState.isDisabled }
           )}
           type="text"
           placeholder="Entry"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          rows={content.split('\n').length}
-          disabled={isDisabled}
+          value={postState.content}
+          onChange={(e) => setPostState(prevState => ({...prevState, content: e.target.value}))}
+          rows={postState.content.split('\n').length}
+          disabled={postState.isDisabled}
         />
       </div>
 
       {/* the above will be consistent with all posts. The below will be unique to each post. */}
-      {!isDisabled && (
+      {!postState.isDisabled && (
         <div className="tw-flex tw-justify-end tw-m-6">
           <button
             className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
             onClick={async () => {
-              await sendToAPI({title: title, content: content, action: 'insert'});
+              await sendToAPI({post: postState, action: 'insert'});
               setFetchPostsTrigger((prev) => prev + 1);
             }}
           >
