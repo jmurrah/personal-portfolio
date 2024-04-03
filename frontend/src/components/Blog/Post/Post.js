@@ -11,7 +11,7 @@ import {
 } from "../../../components/ui/menubar";
 
 
-async function sendToAPI(id=-1, title='', content='', likes=0, action='none') {
+async function sendToAPI({id = -1, title = '', content = '', likes = 0, action = 'none'}) {
   return fetch('/blog', {
     method: 'POST',
     headers: {
@@ -73,7 +73,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
       <button
             className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
             onClick={async () => {
-              await sendToAPI(id, likes + 1, 'update_likes');
+              await sendToAPI({id: id, title: title, content: content, likes: likes + 1, action: 'update'});
               setLikes((prev) => prev + 1);
             }}
           >
@@ -114,7 +114,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
           <button
             className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
             onClick={async () => {
-              await sendToAPI(title, content, 'insert');
+              await sendToAPI({title: title, content: content, action: 'insert'});
               setFetchPostsTrigger((prev) => prev + 1);
             }}
           >

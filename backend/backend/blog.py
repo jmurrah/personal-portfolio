@@ -12,8 +12,8 @@ def insert_into_table(data: dict):
 
 # EDIT THIS FUNCTION
 def update_table(data: dict):
-    data_without_id = {k: v for k, v in data.items() if k != 'id'}
-    set_clause = ', '.join(f"{key} = '{value}'" for key, value in data_without_id.items())
+    formatted_data = {k: v for k, v in data.items() if k != 'id' and k != 'action'}
+    set_clause = ', '.join(f"{key} = '{value}'" for key, value in formatted_data.items())
 
     execute_sql_statement(
         f"""
@@ -36,10 +36,8 @@ def delete_from_table(data: dict):
 def perform_db_action(data: dict) -> dict:
     if data["action"] == "insert":
         insert_into_table(data)
-    elif data["action"] == "update_likes":
-        update_table({"id": data["id"], "likes": data["likes"]})
-    elif data["action"] == "update_title_content":
-        update_table({data["id"], data["title"], data["content"]})
+    elif data["action"] == "update":
+        update_table(data)
     elif data["action"] == "delete":
         delete_from_table(data)
 
