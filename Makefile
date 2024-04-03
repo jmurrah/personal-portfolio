@@ -19,6 +19,10 @@ stack:
 	(make watch &)
 	./compose.sh
 
+get-db:
+	@echo "Copying database file from container to host..."
+	docker cp personal-portfolio-backend-1:/app/backend/database/portfolio.db $$(bash -c "pwd")/backend/backend/database/portfolio.db
+
 clean:
 	@echo "Cleaning up"
 	if [ "`docker ps -aq`" ]; then docker stop $(shell docker ps -aq); fi

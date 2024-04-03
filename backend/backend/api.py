@@ -13,7 +13,7 @@ def blog() -> tuple[str, int]:
     # IN THE FUTURE, ONLY LOAD SOME OF THE DATA AT A TIME
     if request.method == "POST":
         data = request.json
-        db_action_info = perform_db_action(data)
+        db_action_info = perform_db_action("Blog", data)
 
         return (
             jsonify(

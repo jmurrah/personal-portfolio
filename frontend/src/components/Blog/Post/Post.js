@@ -45,6 +45,14 @@ Post.defaultProps = {
 };
 
 function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
+  // const [postState, setPostState] = useState({
+  //   id: post.id,
+  //   title: post.title,
+  //   content: post.content,
+  //   likes: post.likes,
+  //   isDisabled: initialIsDisabled
+  // });
+
   const id = post.id;
   const [title, setTitle] = useState(post.title);
   const [content, setContent] = useState(post.content);
