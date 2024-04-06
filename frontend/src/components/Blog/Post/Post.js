@@ -47,6 +47,7 @@ Post.defaultProps = {
 function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
   const [postState, setPostState] = useState({
     id: post.id,
+    time: post.time,
     title: post.title,
     content: post.content,
     likes: post.likes,
@@ -75,8 +76,9 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
       <button
             className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
             onClick={async () => {
-              setPostState(prevState => ({...prevState, likes: postState.likes + 1}));
-              await sendToAPI({post: postState, action: 'update'});
+              const updatedLikes = postState.likes + 1;
+              setPostState(prevState => ({...prevState, likes: updatedLikes}));
+              await sendToAPI({post: {...postState, likes: updatedLikes}, action: 'update'});
             }}
           >
             Like
