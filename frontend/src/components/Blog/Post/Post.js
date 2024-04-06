@@ -56,38 +56,30 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
 
   return (
     <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black  tw-bg-purple-900">
-      <p className="tw-mx-6 tw-mt-2 tw-mb-2 tw-text-white">
-        Jacob Murrah @jmurrah {postState.time} {postState.likes} likes 
-      </p>
-      <Menubar className="tw-w-14">
-        <MenubarMenu>
-          <MenubarTrigger>. . .</MenubarTrigger>
-          <MenubarContent>
-            <MenubarItem>
-              Edit
-            </MenubarItem>
-            <MenubarItem>
-              Delete
-            </MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
-      </Menubar>
 
-      <button
-            className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
-            onClick={async () => {
-              const updatedLikes = postState.likes + 1;
-              setPostState(prevState => ({...prevState, likes: updatedLikes}));
-              await sendToAPI({post: {...postState, likes: updatedLikes}, action: 'update'});
-            }}
-          >
-            Like
-      </button>
+      <div className='tw-flex'>
+        <p className="tw-mx-6 tw-mt-2 tw-mb-2 tw-text-white">
+          Jacob Murrah @jmurrah {postState.time} {postState.likes} likes 
+        </p>
+        <Menubar className="tw-w-14 tw-ml-auto">
+          <MenubarMenu>
+            <MenubarTrigger>. . .</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>
+                  Edit
+                </MenubarItem>
+                <MenubarItem>
+                  Delete
+                </MenubarItem>
+              </MenubarContent>
+          </MenubarMenu>
+        </Menubar>
+      </div>
 
       <div className="tw-flex tw-flex-col tw-justify-center tw-mx-6 tw-mb-6">
         <textarea
           className={classNames(
-            'tw-w-full tw-h-10 tw-mb-2 tw-rounded-lg tw-pl-1.5',
+            'tw-w-full tw-h-10 tw-mb-2 tw-rounded-lg tw-pl-1.5 tw-mt-2',
             {
               'disabled-textarea': postState.isDisabled,
             }
@@ -111,6 +103,19 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
           disabled={postState.isDisabled}
         />
       </div>
+
+      {postState.isDisabled && (
+        <button
+              className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500 tw-flex tw-ml-auto"
+              onClick={async () => {
+                const updatedLikes = postState.likes + 1;
+                setPostState(prevState => ({...prevState, likes: updatedLikes}));
+                await sendToAPI({post: {...postState, likes: updatedLikes}, action: 'update'});
+              }}
+            >
+              Like
+        </button>
+      )}
 
       {/* the above will be consistent with all posts. The below will be unique to each post. */}
       {!postState.isDisabled && (

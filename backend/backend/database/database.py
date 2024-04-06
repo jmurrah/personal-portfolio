@@ -26,3 +26,27 @@ def get_last_row(table_name: str) -> list:
     cursor.execute(f"SELECT * FROM {table_name} ORDER BY id DESC LIMIT 1")
     last_row = cursor.fetchone()
     return last_row
+
+def insert_into_table(table_name: str, data: dict):
+    formatted_data = {k: v for k, v in data.items() if k not in ('id', 'time', 'action')}
+    insert = ', '.join(formatted_data.keys())
+    values = ', '.join(f"'{value}'" for value in formatted_data.values())
+
+    execute_sql_statement(
+        f"""
+        INSERT INTO {table_name} ({insert})
+        VALUES ({values})
+        """
+    )
+
+def update_table(table_name: str, data: dict):
+    formatted_data = {k: v for k, v in data.items() if k != 'id' and k != 'action'}
+    set_clause = ', '.join(f"{key} = '{value}'" for key, value in formatted_data.items())
+
+    execute_sql_statement(
+        f"""
+        UPDATE {table_name}
+        SET {set_clause}
+        WHERE id = '{data['id']}'
+        """
+    )
