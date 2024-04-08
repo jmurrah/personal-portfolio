@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 async function getLanguages() {
   try {
     const response = await fetch('/about');
+    console.log('Response:', response);
     return await response.json();
   } catch (error) {
     console.error('Error:', error);

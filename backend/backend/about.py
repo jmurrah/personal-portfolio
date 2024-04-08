@@ -1,6 +1,7 @@
 import requests
 from datetime import datetime
 from .database import database
+import json
 
 def add_two_dicts(dict1: dict, dict2: dict) -> dict:
     result = dict1.copy()
@@ -26,7 +27,7 @@ def add_languages(repo_list: list[dict]) -> dict:
             result[key]["percentage"] = "{:.1f}".format(round(result[key]["lines"] / result["Total"], 3) * 100)
     
     result["Percentages"] = sorted([result[key]["percentage"] for key in result if key != "Total"])
-    database.insert_into_table("Languages", {"languages": result})
+    database.insert_into_table("Languages", {"languages": json.dumps(result)})
     return result
 
 
@@ -48,6 +49,7 @@ def get_repo_languages(username: str) -> list[dict]:
     return repo_list
 
 def should_update_languages() -> bool:
+    return True
     #2024-04-06 23:19:28  <-- example timestamp
     current_timestamp = datetime.now()
     latest_timestamp = datetime.strptime(database.get_last_row("Blog")[1], '%Y-%m-%d %H:%M:%S') # returns 2024-04-06 23:19:28
