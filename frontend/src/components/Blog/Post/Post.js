@@ -9,6 +9,7 @@ import {
 } from '../../../components/ui/menubar';
 
 async function sendToAPI({ post, action = 'none' }) {
+  console.log('post', post);
   return fetch('/blog', {
     method: 'POST',
     headers: {

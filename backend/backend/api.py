@@ -1,19 +1,16 @@
 from flask import Flask, request, jsonify
-from .database.database import get_table
-from .blog import perform_db_action
-from .about import get_user_languages
-import subprocess
-import requests
+from .database import database
+from . import about
 
 app = Flask(__name__)
 
 
 @app.route("/blog", methods=["POST", "GET"])
-def blog() -> tuple[str, int]:
+def handle_blog() -> tuple[str, int]:
     # IN THE FUTURE, ONLY LOAD SOME OF THE DATA AT A TIME
     if request.method == "POST":
         data = request.json
-        db_action_info = perform_db_action("Blog", data)
+        db_action_info = database.perform_db_action("Blog", data)
 
         return (
             jsonify(
@@ -26,17 +23,17 @@ def blog() -> tuple[str, int]:
             200,
         )
     elif request.method == "GET":
-        return jsonify(get_table("Blog")), 200
+        return jsonify(database.get_table("Blog")), 200
 
 
 @app.route("/about", methods=["GET"])
-def about() -> tuple[str, int]:
-    user_languages = get_user_languages("jmurrah")
+def handle_about() -> tuple[str, int]:
+    user_languages = about.get_user_languages("jmurrah")
     return jsonify(user_languages), 200
 
 
 @app.route("/", methods=["GET"])
-def home():
+def handle_home():
     return "test, World!"
 
 

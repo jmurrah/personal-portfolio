@@ -65,7 +65,7 @@ def should_update_languages() -> bool:
     current_timestamp = datetime.now()
     latest_timestamp = datetime.strptime(
         database.get_last_row("Languages")[1], "%Y-%m-%d %H:%M:%S"
-    ) 
+    )
     difference = current_timestamp - latest_timestamp
     return difference.days > 1
 
@@ -76,11 +76,4 @@ def get_user_languages(username: str) -> dict:
         added_languages = add_languages(repo_list)
         return added_languages
     else:
-        return database.get_last_row("Languages")[2]  # returns languages from db
-
-
-# ADD FUNCTION TO CHECK WHAT REPOS HAVE BEEN CHANGED SINCE LAST CHECK
-# store time to DB and read from db to check if repo has been updated since last check
-if __name__ == "__main__":
-    languages = get_user_languages("jmurrah")
-    print(languages)
+        return json.loads(database.get_last_row("Languages")[2])

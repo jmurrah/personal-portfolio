@@ -3,10 +3,10 @@ import sqlite3
 DB_PATH = "/app/backend/database/portfolio.db"
 
 
-def execute_sql_statement(sql_statement: str):
+def execute_sql_statement(sql_statement: str, values: tuple = None):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    cursor.execute(sql_statement)
+    cursor.execute(sql_statement, values)
     conn.commit()
     conn.close()
 
@@ -29,15 +29,19 @@ def get_last_row(table_name: str) -> list:
 
 
 def insert_into_table(table_name: str, data: dict):
-    formatted_data = {k: v for k, v in data.items() if k != "action"}
+    formatted_data = {
+        k: v for k, v in data.items() if k not in ("id", "time", "action")
+    }
     insert = ", ".join(formatted_data.keys())
+    placeholders = ", ".join("?" for _ in formatted_data.values())
     values = ", ".join(f"'{value}'" for value in formatted_data.values())
 
     execute_sql_statement(
         f"""
         INSERT INTO {table_name} ({insert})
-        VALUES ({values})
-        """
+        VALUES ({placeholders})
+        """,
+        values
     )
 
 
@@ -54,3 +58,27 @@ def update_table(table_name: str, data: dict):
         WHERE id = '{data['id']}'
         """
     )
+
+
+# EDIT THIS FUNCTION
+def delete_from_table(table_name: str, data: dict):
+    execute_sql_statement(
+        f"""
+        DELETE FROM {table_name}
+        """
+    )
+
+
+def perform_db_action(table_name: str, data: dict) -> dict:
+    if data["action"] == "insert":
+        insert_into_table(table_name, data)
+    elif data["action"] == "update":
+        update_table(table_name, data)
+    elif data["action"] == "delete":
+        delete_from_table(table_name, data)
+
+    return {
+        "table": get_table("Blog"),
+        "last_row": get_last_row("Blog"),
+        "action": data["action"],
+    }
