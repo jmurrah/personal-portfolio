@@ -2,9 +2,11 @@ from .database.database import execute_sql_statement, get_table, get_last_row
 
 
 def insert_into_table(table_name: str, data: dict):
-    formatted_data = {k: v for k, v in data.items() if k not in ('id', 'time', 'action')}
-    insert = ', '.join(formatted_data.keys())
-    values = ', '.join(f"'{value}'" for value in formatted_data.values())
+    formatted_data = {
+        k: v for k, v in data.items() if k not in ("id", "time", "action")
+    }
+    insert = ", ".join(formatted_data.keys())
+    values = ", ".join(f"'{value}'" for value in formatted_data.values())
 
     execute_sql_statement(
         f"""
@@ -16,8 +18,10 @@ def insert_into_table(table_name: str, data: dict):
 
 # EDIT THIS FUNCTION
 def update_table(table_name: str, data: dict):
-    formatted_data = {k: v for k, v in data.items() if k != 'id' and k != 'action'}
-    set_clause = ', '.join(f"{key} = '{value}'" for key, value in formatted_data.items())
+    formatted_data = {k: v for k, v in data.items() if k != "id" and k != "action"}
+    set_clause = ", ".join(
+        f"{key} = '{value}'" for key, value in formatted_data.items()
+    )
 
     execute_sql_statement(
         f"""
@@ -35,6 +39,7 @@ def delete_from_table(table_name: str, data: dict):
         DELETE FROM Blog
         """
     )
+
 
 def perform_db_action(table_name: str, data: dict) -> dict:
     if data["action"] == "insert":

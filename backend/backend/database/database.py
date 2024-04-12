@@ -28,18 +28,10 @@ def get_last_row(table_name: str) -> list:
     return last_row
 
 
-def get_table_keys(table_name: str) -> list:
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
-    cursor.execute(f"PRAGMA table_info({table_name})")
-    table_info = cursor.fetchall()
-    return [column[1] for column in table_info]
-
-
 def insert_into_table(table_name: str, data: dict):
-    formatted_data = {k: v for k, v in data.items() if k in get_table_keys(table_name)}
-    insert = ', '.join(formatted_data.keys())
-    values = ', '.join(f"'{value}'" for value in formatted_data.values())
+    formatted_data = {k: v for k, v in data.items() if k != "action"}
+    insert = ", ".join(formatted_data.keys())
+    values = ", ".join(f"'{value}'" for value in formatted_data.values())
 
     execute_sql_statement(
         f"""
@@ -48,9 +40,12 @@ def insert_into_table(table_name: str, data: dict):
         """
     )
 
+
 def update_table(table_name: str, data: dict):
-    formatted_data = {k: v for k, v in data.items() if k != 'id' and k != 'action'}
-    set_clause = ', '.join(f"{key} = '{value}'" for key, value in formatted_data.items())
+    formatted_data = {k: v for k, v in data.items() if k != "id" and k != "action"}
+    set_clause = ", ".join(
+        f"{key} = '{value}'" for key, value in formatted_data.items()
+    )
 
     execute_sql_statement(
         f"""

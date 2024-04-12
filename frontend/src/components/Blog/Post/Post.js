@@ -5,13 +5,10 @@ import {
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger,
-} from "../../../components/ui/menubar";
+} from '../../../components/ui/menubar';
 
-
-async function sendToAPI({post, action = 'none'}) {
+async function sendToAPI({ post, action = 'none' }) {
   return fetch('/blog', {
     method: 'POST',
     headers: {
@@ -51,27 +48,22 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
     title: post.title,
     content: post.content,
     likes: post.likes,
-    isDisabled: initialIsDisabled
+    isDisabled: initialIsDisabled,
   });
 
   return (
     <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black  tw-bg-purple-900">
-
-      <div className='tw-flex'>
+      <div className="tw-flex">
         <p className="tw-mx-6 tw-mt-2 tw-mb-2 tw-text-white">
-          Jacob Murrah @jmurrah {postState.time} {postState.likes} likes 
+          Jacob Murrah @jmurrah {postState.time} {postState.likes} likes
         </p>
         <Menubar className="tw-w-14 tw-ml-auto">
           <MenubarMenu>
             <MenubarTrigger>. . .</MenubarTrigger>
-              <MenubarContent>
-                <MenubarItem>
-                  Edit
-                </MenubarItem>
-                <MenubarItem>
-                  Delete
-                </MenubarItem>
-              </MenubarContent>
+            <MenubarContent>
+              <MenubarItem>Edit</MenubarItem>
+              <MenubarItem>Delete</MenubarItem>
+            </MenubarContent>
           </MenubarMenu>
         </Menubar>
       </div>
@@ -87,7 +79,12 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
           type="text"
           placeholder="Title"
           value={postState.title}
-          onChange={(e) => setPostState(prevState => ({...prevState, title: e.target.value}))}
+          onChange={(e) =>
+            setPostState((prevState) => ({
+              ...prevState,
+              title: e.target.value,
+            }))
+          }
           disabled={postState.isDisabled}
         />
         <textarea
@@ -98,7 +95,12 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
           type="text"
           placeholder="Entry"
           value={postState.content}
-          onChange={(e) => setPostState(prevState => ({...prevState, content: e.target.value}))}
+          onChange={(e) =>
+            setPostState((prevState) => ({
+              ...prevState,
+              content: e.target.value,
+            }))
+          }
           rows={postState.content.split('\n').length}
           disabled={postState.isDisabled}
         />
@@ -106,14 +108,20 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
 
       {postState.isDisabled && (
         <button
-              className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500 tw-flex tw-ml-auto"
-              onClick={async () => {
-                const updatedLikes = postState.likes + 1;
-                setPostState(prevState => ({...prevState, likes: updatedLikes}));
-                await sendToAPI({post: {...postState, likes: updatedLikes}, action: 'update'});
-              }}
-            >
-              Like
+          className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500 tw-flex tw-ml-auto"
+          onClick={async () => {
+            const updatedLikes = postState.likes + 1;
+            setPostState((prevState) => ({
+              ...prevState,
+              likes: updatedLikes,
+            }));
+            await sendToAPI({
+              post: { ...postState, likes: updatedLikes },
+              action: 'update',
+            });
+          }}
+        >
+          Like
         </button>
       )}
 
@@ -123,7 +131,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
           <button
             className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
             onClick={async () => {
-              await sendToAPI({post: postState, action: 'insert'});
+              await sendToAPI({ post: postState, action: 'insert' });
               setFetchPostsTrigger((prev) => prev + 1);
             }}
           >

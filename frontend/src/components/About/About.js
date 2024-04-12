@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 async function getLanguages() {
   try {
     const response = await fetch('/about');
-    console.log('Response:', response);
-    return await response.json();
+    const data = await response.json();
+    console.log('Data:', data);
+    return data;
   } catch (error) {
     console.error('Error:', error);
     return [];
@@ -29,8 +30,8 @@ function About() {
       <h1>About</h1>
       <div style={{ display: 'flex', height: 20 }}>
         {Object.entries(languages)
-          .filter(([key, value]) => key !== 'Total' && key !== 'Percentages')
-          .map(([key, value], index) => (
+          .filter(([key]) => key !== 'Total' && key !== 'Percentages')
+          .map(([value], index) => (
             <div
               key={index}
               style={{
@@ -43,7 +44,7 @@ function About() {
 
       <div>
         {Object.entries(languages)
-          .filter(([key, value]) => key !== 'Total' && key !== 'Percentages')
+          .filter(([key]) => key !== 'Total' && key !== 'Percentages')
           .map(([key, value]) => (
             <div key={key}>
               {key}: {value['percentage']}%

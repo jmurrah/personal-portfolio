@@ -3,6 +3,7 @@ from datetime import datetime
 from .database import database
 import json
 
+
 def add_two_dicts(dict1: dict, dict2: dict) -> dict:
     result = dict1.copy()
 
@@ -24,10 +25,21 @@ def add_languages(repo_list: list[dict]) -> dict:
 
     for key in result:
         if key != "Total":
-            result[key]["percentage"] = "{:.1f}".format(round(result[key]["lines"] / result["Total"], 3) * 100)
-    
-    result["Percentages"] = sorted([result[key]["percentage"] for key in result if key != "Total"])
-    database.insert_into_table("Languages", {"languages": json.dumps(result)})
+            result[key]["percentage"] = "{:.1f}".format(
+                round(result[key]["lines"] / result["Total"], 3) * 100
+            )
+
+    result["Percentages"] = sorted(
+        [result[key]["percentage"] for key in result if key != "Total"]
+    )
+    database.update_table(
+        "Languages",
+        {
+            "id": 1,
+            "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "languages": json.dumps(result),
+        },
+    )
     return result
 
 
@@ -48,13 +60,15 @@ def get_repo_languages(username: str) -> list[dict]:
 
     return repo_list
 
+
 def should_update_languages() -> bool:
-    return True
-    #2024-04-06 23:19:28  <-- example timestamp
     current_timestamp = datetime.now()
-    latest_timestamp = datetime.strptime(database.get_last_row("Blog")[1], '%Y-%m-%d %H:%M:%S') # returns 2024-04-06 23:19:28
+    latest_timestamp = datetime.strptime(
+        database.get_last_row("Languages")[1], "%Y-%m-%d %H:%M:%S"
+    ) 
     difference = current_timestamp - latest_timestamp
     return difference.days > 1
+
 
 def get_user_languages(username: str) -> dict:
     if should_update_languages():
@@ -62,7 +76,7 @@ def get_user_languages(username: str) -> dict:
         added_languages = add_languages(repo_list)
         return added_languages
     else:
-        return database.get_last_row("Blog")[2] # returns languages from db
+        return database.get_last_row("Languages")[2]  # returns languages from db
 
 
 # ADD FUNCTION TO CHECK WHAT REPOS HAVE BEEN CHANGED SINCE LAST CHECK

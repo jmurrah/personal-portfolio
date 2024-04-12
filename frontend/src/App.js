@@ -8,7 +8,7 @@ import Contact from './components/Contact/Contact';
 
 function App() {
   return (
-    <div className="tw-bg-black tw-text-white">
+    <div className="tw-bg-black tw-h-screen tw-text-white">
       <NavBar />
 
       <Routes>
