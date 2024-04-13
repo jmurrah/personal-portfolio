@@ -5,10 +5,10 @@ from datetime import datetime
 DB_PATH = "/app/backend/database/portfolio.db"
 
 
-def execute_sql_statement(sql_statement: str):
+def execute_sql_statement(sql_statement: str, values: tuple = None):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    cursor.execute(sql_statement)
+    cursor.execute(sql_statement, values if values is not None else ())
     conn.commit()
     conn.close()
 
@@ -29,36 +29,35 @@ def get_last_row(table_name: str) -> list:
     last_row = cursor.fetchone()
     return {description[0]: json.loads(last_row[i]) if isinstance(last_row[i], str) else last_row[i] for i, description in enumerate(cursor.description)} if last_row else None
 
-
 def format_data(data: dict, excluded_keys: list[str]) -> dict:
-    return {k: json.dumps(v) if isinstance(v, str) else v for k, v in data.items() if k not in excluded_keys}
-
+    return {k: json.dumps(v) for k, v in data.items() if k not in excluded_keys}
 
 def insert_into_table(table_name: str, data: dict):
     formatted_data = format_data(data, ["id"])
     insert = ", ".join(formatted_data.keys())
-    values = ", ".join(f"'{value}'" for value in formatted_data.values())
+    values = ", ".join("?" for _ in formatted_data.values())
 
     execute_sql_statement(
         f"""
         INSERT INTO {table_name} ({insert})
         VALUES ({values})
-        """
+        """,
+        tuple(formatted_data.values())
     )
 
 
 def update_table(table_name: str, data: dict):
     formatted_data = format_data(data, ["id"])
-    set_clause = ", ".join(
-        f"{key} = '{value}'" for key, value in formatted_data.items()
-    )
+    set_clause = ", ".join(f"{key} = ?" for key in formatted_data.keys())
+    values = list(formatted_data.values())
 
     execute_sql_statement(
         f"""
         UPDATE {table_name}
         SET {set_clause}
-        WHERE id = '{data['id']}'
-        """
+        WHERE id = ?
+        """,
+        values + [data["id"]]
     )
 
 
