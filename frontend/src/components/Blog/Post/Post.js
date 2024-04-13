@@ -80,7 +80,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
       <div className="tw-flex tw-flex-col tw-justify-center tw-mx-6 tw-mb-6">
         <textarea
           className={classNames(
-            'tw-w-full tw-h-10 tw-mb-2 tw-rounded-lg tw-pl-1.5 tw-mt-2',
+            'tw-resize-none tw-w-full tw-h-10 tw-mb-2 tw-rounded-lg tw-pl-1.5 tw-mt-2',
             {
               'disabled-textarea': postState.isDisabled,
             }

@@ -31,7 +31,7 @@ function About() {
       <div style={{ display: 'flex', height: 20 }}>
         {Object.entries(languages)
           .filter(([key]) => key !== 'Total' && key !== 'Percentages')
-          .map(([value], index) => (
+          .map(([key, value], index) => (
             <div
               key={index}
               style={{
