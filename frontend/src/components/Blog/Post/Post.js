@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import {
   Menubar,
@@ -52,6 +52,14 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
     isDisabled: initialIsDisabled,
   });
 
+  const textareaRef = useRef(null);
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'inherit';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  }, [postState.content]);
+
   return (
     <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black  tw-bg-purple-900">
       <div className="tw-flex">
@@ -89,20 +97,22 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
           disabled={postState.isDisabled}
         />
         <textarea
+          ref={textareaRef}
           className={classNames(
-            'tw-w-full tw-min-h-50 tw-h-auto tw-rounded-lg tw-pl-1.5 tw-overflow-auto tw-scrollbar-hide',
+            'tw-resize-none tw-w-full tw-min-h-50 tw-h-auto tw-rounded-lg tw-pl-1.5 tw-overflow-hidden tw-scrollbar-hide',
             { 'disabled-textarea': postState.isDisabled }
           )}
           type="text"
           placeholder="Entry"
           value={postState.content}
-          onChange={(e) =>
+          onChange={(e) => {
             setPostState((prevState) => ({
               ...prevState,
               content: e.target.value,
-            }))
-          }
-          rows={postState.content.split('\n').length}
+            }));
+            e.target.style.height = 'inherit';
+            e.target.style.height = `${e.target.scrollHeight}px`;
+          }}
           disabled={postState.isDisabled}
         />
       </div>

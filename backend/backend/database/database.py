@@ -19,7 +19,10 @@ def get_table(table_name: str) -> list[dict]:
     cursor = conn.cursor()
     cursor.execute(f"SELECT * FROM {table_name}")
     all_rows = cursor.fetchall()
-    return [{k: json.loads(v) if isinstance(v, str) else v for k, v in dict(row).items()} for row in all_rows]
+    return [
+        {k: json.loads(v) if isinstance(v, str) else v for k, v in dict(row).items()}
+        for row in all_rows
+    ]
 
 
 def get_last_row(table_name: str) -> list:
@@ -27,10 +30,21 @@ def get_last_row(table_name: str) -> list:
     cursor = conn.cursor()
     cursor.execute(f"SELECT * FROM {table_name} ORDER BY id DESC LIMIT 1")
     last_row = cursor.fetchone()
-    return {description[0]: json.loads(last_row[i]) if isinstance(last_row[i], str) else last_row[i] for i, description in enumerate(cursor.description)} if last_row else None
+    return (
+        {
+            description[0]: (
+                json.loads(last_row[i]) if isinstance(last_row[i], str) else last_row[i]
+            )
+            for i, description in enumerate(cursor.description)
+        }
+        if last_row
+        else None
+    )
+
 
 def format_data(data: dict, excluded_keys: list[str]) -> dict:
     return {k: json.dumps(v) for k, v in data.items() if k not in excluded_keys}
+
 
 def insert_into_table(table_name: str, data: dict):
     formatted_data = format_data(data, ["id"])
@@ -42,7 +56,7 @@ def insert_into_table(table_name: str, data: dict):
         INSERT INTO {table_name} ({insert})
         VALUES ({values})
         """,
-        tuple(formatted_data.values())
+        tuple(formatted_data.values()),
     )
 
 
@@ -57,7 +71,7 @@ def update_table(table_name: str, data: dict):
         SET {set_clause}
         WHERE id = ?
         """,
-        values + [data["id"]]
+        values + [data["id"]],
     )
 
 
