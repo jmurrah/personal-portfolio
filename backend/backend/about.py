@@ -64,7 +64,7 @@ def get_repo_languages(username: str) -> list[dict]:
 def should_update_languages() -> bool:
     current_timestamp = datetime.now()
     latest_timestamp = datetime.strptime(
-        database.get_last_row("Languages")[1], "%Y-%m-%d %H:%M:%S"
+        database.get_last_row("Languages")["time"], "%Y-%m-%d %H:%M:%S"
     )
     difference = current_timestamp - latest_timestamp
     return difference.days > 1
@@ -76,4 +76,4 @@ def get_user_languages(username: str) -> dict:
         added_languages = add_languages(repo_list)
         return added_languages
     else:
-        return json.loads(database.get_last_row("Languages")[2])
+        return json.loads(database.get_last_row("Languages")["languages"])
