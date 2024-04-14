@@ -17,10 +17,18 @@ watch:
 stack: 
 	@echo "Building stack"
 	(make watch &)
-	docker-compose up
+	./compose.sh
+
+get-db:
+	@echo "Copying database file from container to host..."
+	docker cp personal-portfolio-backend-1:/app/backend/database/portfolio.db $$(bash -c "pwd")/backend/backend/database/portfolio.db
 
 clean:
 	@echo "Cleaning up"
-	docker stop $(shell docker ps -aq)
-	docker rm $(shell docker ps -aq)
-	docker rmi $(shell docker images -aq)
+	if [ "`docker ps -aq`" ]; then docker stop $(shell docker ps -aq); fi
+	if [ "`docker ps -aq`" ]; then docker rm $(shell docker ps -aq); fi
+	if [ "`docker images -aq`" ]; then docker rmi $(shell docker images -aq); fi
+
+format:
+	(cd frontend && yarn format)
+	black .
