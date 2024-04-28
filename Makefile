@@ -21,7 +21,7 @@ stack:
 
 get-db:
 	@echo "Copying database file from container to host..."
-	docker cp personal-portfolio-backend-1:/app/backend/database/portfolio.db $$(bash -c "pwd")/backend/backend/database/portfolio.db
+	docker cp personal-portfolio_backend_1:/app/backend/database/portfolio.db $$(bash -c "pwd")/backend/backend/database/portfolio.db
 
 clean:
 	@echo "Cleaning up"
