@@ -12,7 +12,7 @@ COPY pyproject.toml poetry.lock ./
 
 # Install the application dependencies with Poetry
 RUN poetry config virtualenvs.create false
-RUN poetry install --no-interaction --no-ansi
+RUN poetry install --no-root --no-interaction --no-ansi
 
 # Copy the rest of the application code into the Docker image
 COPY . .
