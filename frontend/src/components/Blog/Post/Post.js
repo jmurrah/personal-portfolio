@@ -61,7 +61,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
   }, [postState.content]);
 
   return (
-    <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black  tw-bg-purple-900">
+    <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black tw-bg-purple-900">
       <div className="tw-flex">
         <p className="tw-mx-6 tw-mt-2 tw-mb-2 tw-text-white">
           Jacob Murrah @jmurrah {postState.time} {postState.likes} likes
@@ -83,7 +83,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
             'tw-resize-none tw-w-full tw-h-10 tw-mb-2 tw-rounded-lg tw-pl-1.5 tw-mt-2',
             {
               'disabled-textarea': postState.isDisabled,
-            }
+            },
           )}
           type="text"
           placeholder="Title"
@@ -100,7 +100,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
           ref={textareaRef}
           className={classNames(
             'tw-resize-none tw-w-full tw-min-h-50 tw-h-auto tw-rounded-lg tw-pl-1.5 tw-overflow-hidden tw-scrollbar-hide',
-            { 'disabled-textarea': postState.isDisabled }
+            { 'disabled-textarea': postState.isDisabled },
           )}
           type="text"
           placeholder="Entry"

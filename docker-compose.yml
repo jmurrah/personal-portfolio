@@ -1,14 +1,5 @@
-version: '3'
-
 services:
   backend:
-    x-develop:
-      watch:
-        - action: sync
-          path: ./backend
-          target: /app
-          ignore:
-            - __pycache__/
     build: ./backend
     image: personal-portfolio-backend
     ports:
@@ -16,18 +7,17 @@ services:
     environment:
       - FLASK_ENV=development
       - FLASK_DEBUG=1
+    volumes:
+      - ./backend:/app
   
   frontend:
-    x-develop:
-      watch:
-        - action: sync
-          path: ./frontend
-          target: /app
-          ignore:
-            - node_modules/
     build: ./frontend
+    environment:
+      - WATCHPACK_POLLING=true
     ports:
       - "3000:3000"
     depends_on:
       - backend
+    volumes:
+      - ./frontend:/app
 

@@ -19,7 +19,7 @@ const Menubar = React.forwardRef(({ className, ...props }, ref) => (
     ref={ref}
     className={cn(
       'tw-flex tw-h-10 tw-items-center tw-space-x-1 tw-rounded-md tw-border tw-border-slate-200 tw-bg-white tw-p-1 dark:tw-border-slate-800 dark:tw-bg-slate-950',
-      className
+      className,
     )}
     {...props}
   />
@@ -31,7 +31,7 @@ const MenubarTrigger = React.forwardRef(({ className, ...props }, ref) => (
     ref={ref}
     className={cn(
       'tw-flex tw-cursor-default tw-select-none tw-items-center tw-rounded-sm tw-px-3 tw-py-1.5 tw-text-sm tw-font-medium tw-outline-none focus:tw-bg-slate-100 focus:tw-text-slate-900 data-[state=open]:tw-bg-slate-100 data-[state=open]:tw-text-slate-900 dark:focus:tw-bg-slate-800 dark:focus:tw-text-slate-50 dark:data-[state=open]:tw-bg-slate-800 dark:data-[state=open]:tw-text-slate-50',
-      className
+      className,
     )}
     {...props}
   />
@@ -45,14 +45,14 @@ const MenubarSubTrigger = React.forwardRef(
       className={cn(
         'tw-flex tw-cursor-default tw-select-none tw-items-center tw-rounded-sm tw-px-2 tw-py-1.5 tw-text-sm tw-outline-none focus:tw-bg-slate-100 focus:tw-text-slate-900 data-[state=open]:tw-bg-slate-100 data-[state=open]:tw-text-slate-900 dark:focus:tw-bg-slate-800 dark:focus:tw-text-slate-50 dark:data-[state=open]:tw-bg-slate-800 dark:data-[state=open]:tw-text-slate-50',
         inset && 'tw-pl-8',
-        className
+        className,
       )}
       {...props}
     >
       {children}
       <ChevronRight className="tw-ml-auto tw-h-4 tw-w-4" />
     </MenubarPrimitive.SubTrigger>
-  )
+  ),
 );
 MenubarSubTrigger.displayName = MenubarPrimitive.SubTrigger.displayName;
 
@@ -61,7 +61,7 @@ const MenubarSubContent = React.forwardRef(({ className, ...props }, ref) => (
     ref={ref}
     className={cn(
       'tw-z-50 tw-min-w-[8rem] tw-overflow-hidden tw-rounded-md tw-border tw-border-slate-200 tw-bg-white tw-p-1 tw-text-slate-950 data-[state=open]:tw-animate-in data-[state=closed]:tw-animate-out data-[state=closed]:tw-fade-out-0 data-[state=open]:tw-fade-in-0 data-[state=closed]:tw-zoom-out-95 data-[state=open]:tw-zoom-in-95 data-[side=bottom]:tw-slide-in-from-top-2 data-[side=left]:tw-slide-in-from-right-2 data-[side=right]:tw-slide-in-from-left-2 data-[side=top]:tw-slide-in-from-bottom-2 dark:tw-border-slate-800 dark:tw-bg-slate-950 dark:tw-text-slate-50',
-      className
+      className,
     )}
     {...props}
   />
@@ -71,7 +71,7 @@ MenubarSubContent.displayName = MenubarPrimitive.SubContent.displayName;
 const MenubarContent = React.forwardRef(
   (
     { className, align = 'start', alignOffset = -4, sideOffset = 8, ...props },
-    ref
+    ref,
   ) => (
     <MenubarPrimitive.Portal>
       <MenubarPrimitive.Content
@@ -81,12 +81,12 @@ const MenubarContent = React.forwardRef(
         sideOffset={sideOffset}
         className={cn(
           'tw-z-50 tw-min-w-[12rem] tw-overflow-hidden tw-rounded-md tw-border tw-border-slate-200 tw-bg-white tw-p-1 tw-text-slate-950 tw-shadow-md data-[state=open]:tw-animate-in data-[state=closed]:tw-fade-out-0 data-[state=open]:tw-fade-in-0 data-[state=closed]:tw-zoom-out-95 data-[state=open]:tw-zoom-in-95 data-[side=bottom]:tw-slide-in-from-top-2 data-[side=left]:tw-slide-in-from-right-2 data-[side=right]:tw-slide-in-from-left-2 data-[side=top]:tw-slide-in-from-bottom-2 dark:tw-border-slate-800 dark:tw-bg-slate-950 dark:tw-text-slate-50',
-          className
+          className,
         )}
         {...props}
       />
     </MenubarPrimitive.Portal>
-  )
+  ),
 );
 MenubarContent.displayName = MenubarPrimitive.Content.displayName;
 
@@ -96,7 +96,7 @@ const MenubarItem = React.forwardRef(({ className, inset, ...props }, ref) => (
     className={cn(
       'tw-relative tw-flex tw-cursor-default tw-select-none tw-items-center tw-rounded-sm tw-px-2 tw-py-1.5 tw-text-sm tw-outline-none focus:tw-bg-slate-100 focus:tw-text-slate-900 data-[disabled]:tw-pointer-events-none data-[disabled]:tw-opacity-50 dark:focus:tw-bg-slate-800 dark:focus:tw-text-slate-50',
       inset && 'tw-pl-8',
-      className
+      className,
     )}
     {...props}
   />
@@ -109,7 +109,7 @@ const MenubarCheckboxItem = React.forwardRef(
       ref={ref}
       className={cn(
         'tw-relative tw-flex tw-cursor-default tw-select-none tw-items-center tw-rounded-sm tw-py-1.5 tw-pl-8 tw-pr-2 tw-text-sm tw-outline-none focus:tw-bg-slate-100 focus:tw-text-slate-900 data-[disabled]:tw-pointer-events-none data-[disabled]:tw-opacity-50 dark:focus:tw-bg-slate-800 dark:focus:tw-text-slate-50',
-        className
+        className,
       )}
       checked={checked}
       {...props}
@@ -121,7 +121,7 @@ const MenubarCheckboxItem = React.forwardRef(
       </span>
       {children}
     </MenubarPrimitive.CheckboxItem>
-  )
+  ),
 );
 MenubarCheckboxItem.displayName = MenubarPrimitive.CheckboxItem.displayName;
 
@@ -131,7 +131,7 @@ const MenubarRadioItem = React.forwardRef(
       ref={ref}
       className={cn(
         'tw-relative tw-flex tw-cursor-default tw-select-none tw-items-center tw-rounded-sm tw-py-1.5 tw-pl-8 tw-pr-2 tw-text-sm tw-outline-none focus:tw-bg-slate-100 focus:tw-text-slate-900 data-[disabled]:tw-pointer-events-none data-[disabled]:tw-opacity-50 dark:focus:tw-bg-slate-800 dark:focus:tw-text-slate-50',
-        className
+        className,
       )}
       {...props}
     >
@@ -142,7 +142,7 @@ const MenubarRadioItem = React.forwardRef(
       </span>
       {children}
     </MenubarPrimitive.RadioItem>
-  )
+  ),
 );
 MenubarRadioItem.displayName = MenubarPrimitive.RadioItem.displayName;
 
@@ -152,7 +152,7 @@ const MenubarLabel = React.forwardRef(({ className, inset, ...props }, ref) => (
     className={cn(
       'tw-px-2 tw-py-1.5 tw-text-sm tw-font-semibold',
       inset && 'tw-pl-8',
-      className
+      className,
     )}
     {...props}
   />
@@ -164,7 +164,7 @@ const MenubarSeparator = React.forwardRef(({ className, ...props }, ref) => (
     ref={ref}
     className={cn(
       'tw--mx-1 tw-my-1 tw-h-px tw-bg-slate-100 dark:tw-bg-slate-800',
-      className
+      className,
     )}
     {...props}
   />
@@ -176,7 +176,7 @@ const MenubarShortcut = ({ className, ...props }) => {
     <span
       className={cn(
         'tw-ml-auto tw-text-xs tw-tracking-widest tw-text-slate-500 dark:tw-text-slate-400',
-        className
+        className,
       )}
       {...props}
     />

@@ -12,7 +12,7 @@ function Contact() {
           className="tw-text-green-700"
           href="https://www.linkedin.com/in/jacobmurrah/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noreferrer"
         >
           https://www.linkedin.com/in/jacobmurrah/
         </a>
@@ -23,7 +23,7 @@ function Contact() {
           className="tw-text-green-700"
           href="https://github.com/jmurrah"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noreferrer"
         >
           https://github.com/jmurrah
         </a>
@@ -32,9 +32,9 @@ function Contact() {
         LeetCode:{' '}
         <a
           className="tw-text-green-700"
-          href="https://leetcode.com/jacobhmurrah/"
+          href="https://leetcode.com/jmurrah/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noreferrer"
         >
           https://github.com/jmurrah
         </a>

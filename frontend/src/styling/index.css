@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .disabled-textarea {
-    background-color: #D3D3D3; /* Light gray */
+  background-color: #d3d3d3; /* Light gray */
 }

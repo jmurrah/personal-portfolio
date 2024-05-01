@@ -27,17 +27,100 @@
     "tailwindcss-animate": "^1.0.7",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.24.5",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-react": "^7.24.1",
+    "@eslint/js": "^9.1.1",
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^28.3.0",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.1.0",
+    "prettier": "^3.2.5"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write src/**/*.{js,jsx}"
+    "format": "eslint . && prettier --write ."
+  },
+  "componentsConfig": {
+    "$schema": "https://ui.shadcn.com/schema.json",
+    "style": "default",
+    "rsc": false,
+    "tsx": false,
+    "tailwind": {
+      "config": "tailwind.config.js",
+      "css": "./src/styling/index.css",
+      "baseColor": "slate",
+      "cssVariables": false,
+      "prefix": "tw-"
+    },
+    "aliases": {
+      "components": "@/src/components",
+      "utils": "@/lib/utils"
+    }
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "singleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2
   },
   "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "requireConfigFile": false,
+      "babelOptions": {
+        "presets": [
+          "@babel/preset-react"
+        ]
+      }
+    },
+    "plugins": [
+      "react"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "ignorePatterns": [
+      "craco.config.js",
+      "tailwind.config.js"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.js",
+          "**/*.jsx",
+          "**/*.tsx"
+        ],
+        "rules": {
+          "react/prop-types": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -51,8 +134,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "prettier": "^3.2.5"
   }
 }
