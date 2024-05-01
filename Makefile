@@ -13,7 +13,7 @@ backend:
 frontend:
 	@echo "Building frontend"
 	docker build -t frontend ./frontend
-	docker run -p 3000:3000 -v ./frontend:/app -e WATCHPACK_POLLING=true frontend
+	docker run -p 3000:3000 frontend
 
 stack: 
 	@echo "Building stack"
