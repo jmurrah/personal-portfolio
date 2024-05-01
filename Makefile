@@ -21,11 +21,7 @@ stack:
 
 get-db:
 	@echo "Copying database file from container to host..."
-	@if docker cp personal-portfolio-backend-1:/app/backend/database/portfolio.db $$(pwd)/backend/backend/database/portfolio.db; then \
-		echo "Copied database file from personal-portfolio-backend-1"; \
-	else \
-		docker cp personal-portfolio_backend_1:/app/backend/database/portfolio.db $$(pwd)/backend/backend/database/portfolio.db && echo "Copied database file from personal-portfolio_backend_1"; \
-	fi
+	docker cp personal-portfolio-backend-1:/app/backend/database/portfolio.db $$(pwd)/backend/backend/database/portfolio.db
 
 clean:
 	@echo "Cleaning up"

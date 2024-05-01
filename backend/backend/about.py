@@ -67,7 +67,7 @@ def should_update_languages() -> bool:
         database.get_last_row("Languages")["time"], "%Y-%m-%d %H:%M:%S"
     )
     difference = current_timestamp - latest_timestamp
-    return difference.days > 1
+    return difference.days > 7
 
 
 def get_user_languages(username: str) -> dict:
