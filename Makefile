@@ -1,5 +1,10 @@
 .PHONY: backend frontend stack clean
 
+install:
+	@echo "Installing dependencies"
+	(cd backend && poetry install)
+	(cd frontend && yarn install)
+
 backend:
 	@echo "Building backend"
 	docker build -t backend ./backend
@@ -10,13 +15,8 @@ frontend:
 	docker build -t frontend ./frontend
 	docker run -p 3000:3000 frontend
 
-watch:
-	@echo "Watching stack"
-	docker compose alpha watch
-
 stack: 
 	@echo "Building stack"
-	(make watch &)
 	./compose.sh
 
 get-db:
@@ -30,5 +30,5 @@ clean:
 	if [ "`docker images -aq`" ]; then docker rmi $(shell docker images -aq); fi
 
 format:
+	(cd backend && black .)
 	(cd frontend && yarn format)
-	black .

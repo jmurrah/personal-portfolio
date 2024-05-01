@@ -34,7 +34,7 @@ def handle_about() -> tuple[str, int]:
 
 @app.route("/", methods=["GET"])
 def handle_home():
-    return "test, World!"
+    return "Hello World!"
 
 
 if __name__ == "__main__":

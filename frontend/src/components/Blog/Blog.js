@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import Post from './Post/Post';
+import React, { useEffect, useState } from 'react'
+import Post from './Post/Post'
 
 async function getPosts() {
   try {
-    const response = await fetch('/blog');
-    const data = await response.json();
-    return data;
+    const response = await fetch('/blog')
+    const data = await response.json()
+    return data
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error:', error)
   }
 }
 
 function getLastId(posts) {
   if (posts.length === 0) {
-    return 0;
+    return 0
   }
-  return posts[posts.length - 1].id;
+  return posts[posts.length - 1].id
 }
 
 function Blog() {
-  const [posts, setPosts] = useState([]);
-  const [fetchPostsTrigger, setFetchPostsTrigger] = useState(0);
+  const [posts, setPosts] = useState([])
+  const [fetchPostsTrigger, setFetchPostsTrigger] = useState(0)
 
   useEffect(() => {
     getPosts().then((data) => {
-      setPosts(data);
-    });
-  }, [fetchPostsTrigger]);
+      setPosts(data)
+    })
+  }, [fetchPostsTrigger])
 
   return (
     <div className="tw-flex tw-flex-col tw-items-center">
@@ -47,10 +47,10 @@ function Blog() {
               initialIsDisabled={true}
               setFetchPostsTrigger={setFetchPostsTrigger}
             />
-          );
+          )
         })}
     </div>
-  );
+  )
 }
 
-export default Blog;
+export default Blog
