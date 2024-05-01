@@ -61,7 +61,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
   }, [postState.content]);
 
   return (
-    <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black  tw-bg-purple-900">
+    <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black tw-bg-purple-900">
       <div className="tw-flex">
         <p className="tw-mx-6 tw-mt-2 tw-mb-2 tw-text-white">
           Jacob Murrah @jmurrah {postState.time} {postState.likes} likes
