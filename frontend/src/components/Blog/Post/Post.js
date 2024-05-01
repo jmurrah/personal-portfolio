@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react'
-import classNames from 'classnames'
+import React, { useState, useEffect, useRef } from 'react';
+import classNames from 'classnames';
 import {
   Menubar,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
   MenubarTrigger,
-} from '../../../components/ui/menubar'
+} from '../../../components/ui/menubar';
 
 async function sendToAPI({ post, action = 'none' }) {
-  console.log('post', post)
+  console.log('post', post);
   return fetch('/blog', {
     method: 'POST',
     headers: {
@@ -25,10 +25,10 @@ async function sendToAPI({ post, action = 'none' }) {
   })
     .then((response) => response.json())
     .then((response) => {
-      console.log(response)
-      return response
+      console.log(response);
+      return response;
     })
-    .catch((error) => console.error('Error:', error))
+    .catch((error) => console.error('Error:', error));
 }
 
 Post.defaultProps = {
@@ -40,7 +40,7 @@ Post.defaultProps = {
     likes: 0,
   },
   initialIsDisabled: false,
-}
+};
 
 function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
   const [postState, setPostState] = useState({
@@ -50,15 +50,15 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
     content: post.content,
     likes: post.likes,
     isDisabled: initialIsDisabled,
-  })
+  });
 
-  const textareaRef = useRef(null)
+  const textareaRef = useRef(null);
   useEffect(() => {
     if (textareaRef.current) {
-      textareaRef.current.style.height = 'inherit'
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`
+      textareaRef.current.style.height = 'inherit';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
     }
-  }, [postState.content])
+  }, [postState.content]);
 
   return (
     <div className="tw-m-6 tw-w-3/5 tw-h-auto tw-rounded-lg tw-text-black tw-bg-purple-900">
@@ -109,9 +109,9 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
             setPostState((prevState) => ({
               ...prevState,
               content: e.target.value,
-            }))
-            e.target.style.height = 'inherit'
-            e.target.style.height = `${e.target.scrollHeight}px`
+            }));
+            e.target.style.height = 'inherit';
+            e.target.style.height = `${e.target.scrollHeight}px`;
           }}
           disabled={postState.isDisabled}
         />
@@ -121,15 +121,15 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
         <button
           className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500 tw-flex tw-ml-auto"
           onClick={async () => {
-            const updatedLikes = postState.likes + 1
+            const updatedLikes = postState.likes + 1;
             setPostState((prevState) => ({
               ...prevState,
               likes: updatedLikes,
-            }))
+            }));
             await sendToAPI({
               post: { ...postState, likes: updatedLikes },
               action: 'update',
-            })
+            });
           }}
         >
           Like
@@ -142,8 +142,8 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
           <button
             className="tw-px-4 tw-py-2 tw-text-lg tw-rounded-lg tw-bg-green-500"
             onClick={async () => {
-              await sendToAPI({ post: postState, action: 'insert' })
-              setFetchPostsTrigger((prev) => prev + 1)
+              await sendToAPI({ post: postState, action: 'insert' });
+              setFetchPostsTrigger((prev) => prev + 1);
             }}
           >
             Post
@@ -151,7 +151,7 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default Post
+export default Post;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Projects() {
   return (
@@ -6,7 +6,7 @@ function Projects() {
       <h1>Projects</h1>
       <p>Coming Soon...</p>
     </div>
-  )
+  );
 }
 
-export default Projects
+export default Projects;

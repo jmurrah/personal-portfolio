@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 async function getLanguages() {
   try {
-    const response = await fetch('/about')
-    const data = await response.json()
-    console.log('Data:', data)
-    return data
+    const response = await fetch('/about');
+    const data = await response.json();
+    console.log('Data:', data);
+    return data;
   } catch (error) {
-    console.error('Error:', error)
-    return []
+    console.error('Error:', error);
+    return [];
   }
 }
 
 function getRandomColor() {
-  return '#' + Math.floor(Math.random() * 16777215).toString(16)
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
 }
 
 function About() {
-  const [languages, setLanguages] = useState([])
+  const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
     getLanguages().then((data) => {
-      setLanguages(data)
-    })
-  }, [])
+      setLanguages(data);
+    });
+  }, []);
 
   return (
     <div>
@@ -66,7 +66,7 @@ function About() {
         </a>
       </div>
     </div>
-  )
+  );
 }
 
-export default About
+export default About;
