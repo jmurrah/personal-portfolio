@@ -51,14 +51,15 @@ function About() {
             </div>
           ))}
       </div>
-      
+
       <div>
         <a
           href="https://leetcode.com/jmurrah/"
           className="tw-flex tw-justify-center"
           target="_blank"
+          rel="noreferrer"
         >
-          <img src="https://leetcard.jacoblin.cool/jmurrah?theme=dark&font=Baloo%202&ext=heatmap"></img>
+          <img src="https://leetcard.jacoblin.cool/jmurrah?theme=dark&font=Baloo%202&ext=heatmap" alt="Leetcode profile"></img>
         </a>
       </div>
     </div>
