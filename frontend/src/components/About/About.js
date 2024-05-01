@@ -31,7 +31,7 @@ function About() {
       <div className="tw-flex tw-h-5">
         {Object.entries(languages)
           .filter(([key]) => key !== 'Total' && key !== 'Percentages')
-          .map(([key, value], index) => (
+          .map((value, index) => (
             <div
               key={index}
               style={{

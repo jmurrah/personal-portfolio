@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import {
   Menubar,
   MenubarContent,
@@ -153,5 +154,17 @@ function Post({ post, initialIsDisabled, setFetchPostsTrigger }) {
     </div>
   );
 }
+
+Post.propTypes = {
+  post: PropTypes.shape({
+    id: PropTypes.number,
+    time: PropTypes.string,
+    title: PropTypes.string,
+    content: PropTypes.string,
+    likes: PropTypes.number,
+  }),
+  initialIsDisabled: PropTypes.bool,
+  setFetchPostsTrigger: PropTypes.func,
+};
 
 export default Post;
