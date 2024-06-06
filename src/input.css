@@ -9,3 +9,12 @@
         @apply m-0;
     }
 }
+
+@media only screen and (max-width: 850px) {
+    #links {
+        display: none;
+    }
+    #content {
+        width: 100vw;
+    }
+}
