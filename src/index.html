@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     <link rel="stylesheet" href="output.css">
-    <script src="animation.js" defer></script>
+    <script src="script.js" defer></script>
     <title>Jacob Murrah</title>
   </head>
   <body class="flex flex-col bg-black text-white">
@@ -32,54 +32,65 @@
       <img class="h-auto w-6" src="../static/fern-staff.png"/>
     </div>
 
-    <div id="content" class="self-center flex flex-col justify-center items-center text-center w-8/12 bg-gray-800">
+    <div id="content" class="self-center flex flex-col gap-y-36 w-8/12 bg-gray-800 min-h-screen">
+      <div id="intro" class="flex flex-col h-screen justify-center items-center">
+        <p>Hello, my name is</p>
+        <h2 class="text-9xl">Jacob Murrah</h2>
+        <p>I'm a Software Developer learning how things work!</p>
+      </div>
 
-      <div id="intro" class="h-screen">
-        <p>Hello, I am</p>
-        <div class="flex flex-wrap justify-center gap-x-20 gap-y-10 text-purple-600 font-black text-sm">
-<pre>
-         @@#                                                  #@@           
-         @@#                                                  #@@           
-         @@#                                                  #@@           
-         @@#   .@@@@@@@@=        @@@@@@@#       @@@@@@@+      #@@ @@@@@@%   
-         @@#  @@@     *@@@     @@@%    @@@    @@@=    @@@+    #@@@@    @@@= 
-         @@# #@@       +@@    @@@       @@@  @@@       -@@-   #@@-      +@@ 
-         @@#         :%@@@    @@@           -@@         @@@   #@@        @@@
-         @@#  +@@@@@@@@#@@    @@#           *@@         @@@   #@@        @@@
-@@-      @@= @@@       *@@    @@@        +. .@@.        @@@   #@@        @@#
-@@@     @@@  @@%       @@@    +@@.      @@@  @@@       @@@    #@@#      @@@ 
- @@@@@@@@@+  @@@@.  +@@@@@     -@@@#:-@@@@    @@@@*:=@@@@     #@@@@@:-@@@@  
-   @@@@@.      #@@@@%   @@@       @@@@@=        .@@@@@=       =@@  @@@@+    
-</pre>
-<pre>
-@@@@@           @@@@-                                                         @@@          
-@@@@@           @@@@-                                                         @@@          
-@@@@@@         @@-@@-                                                         @@@          
-@@@ @@*       #@@ @@-  @@@       @@%    @@--@@@@.  @@ @@@@@    *@@@@@@@@      @@@ @@@@@@@  
-@@@ :@@       @@  @@-  @@@       @@%    @@@@% =@   @@@@= #   .@@@     @@@*    @@@@@    @@@:
-@@@  @@@     @@-  @@-  @@@       @@%    @@@        @@@       @@@       @@@    @@@       @@@
-@@@   @@.   =@@   @@-  @@@       @@%    @@@        @@:               =@@@@    @@@       @@@
-@@@   *@@   @@    @@-  @@@       @@%    @@@        @@         @@@@@@@@#@@@    @@@       @@@
-@@@    @@# @@+    @@-  @@@       @@%    @@@        @@        @@@       @@@    @@@       @@@
-@@@     @@:@@     @@-  @@@      %@@%    @@@        @@       +@@       :@@@    @@@       @@@
-@@@     @@@@      @@-   @@@@=+@@@@@%    @@@        @@        @@@%   @@@@@@    @@@       @@@
-@@%      @@*      @@.     @@@@%  #@+    @@%        @@          @@@@@*   @@=   %@@       @@%
-</pre>
+      <div id="about" class="flex flex-col justify-center items-center">
+        <p>1. About Me</p>
+        <p>
+          I am a software developer with a passion for creating and learning. 
+          I am currently a student at Auburn University studying Software Engineering. 
+          I have experience with in Backend and Frontend development, as well as Devops. 
+          I am always looking for new opportunities to learn and grow as a developer.
+        </p>
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jmurrah&layout=compact&theme=radical&langs_count=10">
+      </div>
+
+      <div id="experience" class="flex flex-col justify-center items-center">
+        <p>2. Experience</p>
+        <div class="flex gap-20">
+          <div class="flex flex-col gap-5">
+            <button>Adtran</button>
+            <button>IS4S</button>
+          </div>
+
+          <div id="adtran">
+            <h2>Software Engineer Co-Op @ Adtran</h2>
+            <h3>May 2023 - Present</h3>
+            <p>
+              Description of work.
+            </p>
+          </div>
+
+          <div id="is4s" class="hidden">
+            <h2>Technition/Inventory Support @ IS4S</h2>
+            <h3>Jan 2021 - Aug 2022</h3>
+            <p>
+              Description of work.
+            </p>
+          </div>
+
         </div>
-        <p>I write code</p>
       </div>
 
 
-      <p>
-        Built with insporation from
-        <a href="https://github.com/bchiang7/v4" target="_blank" rel="noreferrer">Brittany Chiang</a> 
-        &
-        <a href="https://github.com/wumphlett/willhumphlett" target="_blank" rel="noreferrer">Will Humphlett</a>
-      </p>
-      <p>
-        Source on
-        <a href="https://github.com/jmurrah/personal-portfolio" title="GitHub" target="_blank" rel="noreferrer">GitHub</a>
-      </p>
+      <div id="footer">
+        <p>
+          Built with insporation from
+          <a href="https://github.com/bchiang7/v4" target="_blank" rel="noreferrer">Brittany Chiang</a> 
+          &
+          <a href="https://github.com/wumphlett/willhumphlett" target="_blank" rel="noreferrer">Will Humphlett</a>
+        </p>
+        <p>
+          Source on
+          <a href="https://github.com/jmurrah/personal-portfolio" title="GitHub" target="_blank" rel="noreferrer">GitHub</a>
+        </p>
+
+      </div>
     </div>
   </body>
 </html>
