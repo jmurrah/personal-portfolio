@@ -1,4 +1,4 @@
-window.onload = () => {
+window.onload = () => { 
     const buttons = document.querySelectorAll("#experience button");
     const descriptions = document.querySelectorAll("#experience div[id]");
 

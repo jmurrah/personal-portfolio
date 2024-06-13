@@ -6,15 +6,57 @@
     <script src="script.js" defer></script>
     <title>Jacob Murrah</title>
   </head>
-  <body class="flex flex-col bg-black text-white">
+  <body class="flex flex-col bg-black text-white relative">
 
-    <div id="header" class="z-50 sticky top-0 flex gap-5 p-5 bg-black">
-        <p class="mr-auto">logo</p>
-        <p>About Me</p>
-        <p>Experience</p>
-        <p>Projects</p>
-        <p>Contact</p>
+    <div id="content" class="self-center flex flex-col w-8/12 bg-gray-800">
+      <div id="intro" class="flex flex-col justify-center items-center h-screen">
+        <p>Hello, my name is</p>
+        <h2 class="text-8xl">Jacob Murrah</h2>
+        <p>I'm a Software Developer learning how things work!</p>
+      </div>
+
+      <div id="body" class="flex flex-col gap-20 bg-purple-600">
+
+        <div id="about" class="flex flex-col justify-center items-center">
+          <p>1. About Me</p>
+          <p>
+            I am a software developer with a passion for creating and learning. 
+            I am currently a student at Auburn University studying Software Engineering. 
+            I have experience with in Backend and Frontend development, as well as Devops. 
+            I am always looking for new opportunities to learn and grow as a developer.
+          </p>
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jmurrah&layout=compact&theme=radical&langs_count=10">
+        </div>
+
+        <div id="experience" class="flex flex-col items-center">
+          <p>2. Experience</p>
+
+          <div class="flex">
+            <div class="w-36 flex flex-col gap-5">
+              <button class="bg-red-600">Adtran</button>
+              <button>IS4S</button>
+            </div>
+
+            <div class="ml-10">
+              <div id="adtran">
+                <h2>Software Engineer Co-Op @ Adtran</h2>
+                <h3>May 2023 - Present</h3>
+                <p>Description of work.</p>
+              </div>
+
+              <div id="is4s" class="hidden">
+                <h2>Technition/Inventory Support @ IS4S</h2>
+                <h3>Jan 2021 - Aug 2022</h3>
+                <p>Description of work.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
+
 
     <div id="links" class="flex fixed bottom-0 flex-col gap-5 p-5 mx-10">
       <a href="https://github.com/jmurrah" title="GitHub" target="_blank" rel="noreferrer">
@@ -32,65 +74,24 @@
       <img class="h-auto w-6" src="../static/fern-staff.png"/>
     </div>
 
-    <div id="content" class="self-center flex flex-col gap-y-36 w-8/12 bg-gray-800 min-h-screen">
-      <div id="intro" class="flex flex-col h-screen justify-center items-center">
-        <p>Hello, my name is</p>
-        <h2 class="text-9xl">Jacob Murrah</h2>
-        <p>I'm a Software Developer learning how things work!</p>
-      </div>
-
-      <div id="about" class="flex flex-col justify-center items-center">
-        <p>1. About Me</p>
-        <p>
-          I am a software developer with a passion for creating and learning. 
-          I am currently a student at Auburn University studying Software Engineering. 
-          I have experience with in Backend and Frontend development, as well as Devops. 
-          I am always looking for new opportunities to learn and grow as a developer.
-        </p>
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jmurrah&layout=compact&theme=radical&langs_count=10">
-      </div>
-
-      <div id="experience" class="flex flex-col justify-center items-center">
-        <p class="self-start">2. Experience</p>
-        <div class="flex gap-20">
-          <div class="flex flex-col gap-5">
-            <button class="bg-red-600">Adtran</button>
-            <button>IS4S</button>
-          </div>
-
-          <div id="adtran">
-            <h2>Software Engineer Co-Op @ Adtran</h2>
-            <h3>May 2023 - Present</h3>
-            <p>
-              Description of work.
-            </p>
-          </div>
-
-          <div id="is4s" class="hidden">
-            <h2>Technition/Inventory Support @ IS4S</h2>
-            <h3>Jan 2021 - Aug 2022</h3>
-            <p>
-              Description of work.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div id="footer">
-        <p>
-          Built with insporation from
-          <a href="https://github.com/bchiang7/v4" target="_blank" rel="noreferrer">Brittany Chiang</a> 
-          &
-          <a href="https://github.com/wumphlett/willhumphlett" target="_blank" rel="noreferrer">Will Humphlett</a>
-        </p>
-        <p>
-          Source on
-          <a href="https://github.com/jmurrah/personal-portfolio" title="GitHub" target="_blank" rel="noreferrer">GitHub</a>
-        </p>
-
-      </div>
+    <div id="header" class="fixed z-100 w-full top-0 flex gap-5 p-5 bg-black">
+      <p class="mr-auto">logo</p>
+      <p>About Me</p>
+      <p>Experience</p>
+      <p>Projects</p>
+      <p>Contact</p>
+    </div>
+    <div id="footer" class="text-center">
+      <p>
+        Built with insporation from
+        <a href="https://github.com/bchiang7/v4" target="_blank" rel="noreferrer">Brittany Chiang</a> 
+        &
+        <a href="https://github.com/wumphlett/willhumphlett" target="_blank" rel="noreferrer">Will Humphlett</a>
+      </p>
+      <p>
+        Source on
+        <a href="https://github.com/jmurrah/personal-portfolio" title="GitHub" target="_blank" rel="noreferrer">GitHub</a>
+      </p>
     </div>
   </body>
 </html>
