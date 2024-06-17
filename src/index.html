@@ -3,21 +3,33 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     <link rel="stylesheet" href="output.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet"> -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Jacob Murrah</title>
   </head>
-  <body class="flex flex-col bg-black text-white relative">
+  <body class="flex flex-col bg-custom-background text-white relative">
 
-    <div id="content" class="mx-36 flex flex-col bg-gray-800">
+    <div id="content" class="mx-36 flex flex-col">
 
       <div id="intro" class="self-center flex flex-col justify-center items-center max-w-5xl h-screen">
         <p>Hello, my name is</p>
-        <h2 class="text-8xl">Jacob Murrah</h2>
+        <div class="text-7xl text-primary-purple flex gap-x-7">
+          <h1>JACOB</h1>
+          <h1>MURRAH</h1>
+        </div>
         <p>I'm a Software Developer learning how things work!
-          gweyufwgbuyei wueh owu weuh oiuwe weu oi iew ie i ewiuhuiwo hfiwueuhf weufh wiou wueh wiuh wiuhe woiufhw ifioh</p>
+          gweyufwgbuyei wueh owu weuh oiuwe weu oi iew ie i ewiu huiwo hfiwu euhf weufh wiou wueh wiuh wiuhe woiufhw ifioh</p>
       </div>
 
-      <div id="body" class="self-center flex flex-col gap-20 max-w-4xl bg-purple-600">
+      <div id="body" class="self-center flex flex-col gap-64 max-w-4xl">
 
         <div id="about" class="flex flex-col justify-center">
           <p>1. About Me</p>
@@ -39,31 +51,39 @@
             <li>git</li>
           </ul>
           <p>personal projects</p>
-          <a href="https://github.com/jmurrah" title="GitHub" target="_blank" rel="noreferrer">
-            <img class="h-auto w-96" src="https://github-readme-stats.vercel.app/api/top-langs/?username=jmurrah&layout=compact&theme=radical&langs_count=10">
-          </a>
+          <img class="h-auto w-96" src="https://github-readme-stats.vercel.app/api/top-langs/?username=jmurrah&layout=compact&theme=radical&langs_count=10">
         </div>
 
-        <div id="experience" class="self-center bg-blue-600 flex flex-col max-w-2xl">
+        <div id="experience" class="self-center bg-blue-600 flex flex-col max-w-2xl h-56">
           <p>2. Where I've Worked</p>
           <div class="flex bg-pink-500">
-            <div class="w-40 flex flex-col">
-              <button class="h-10 bg-red-600">Adtran</button>
-              <button class="h-10">IS4S</button>
+            <div class="flex flex-col">
+              <button class="h-10 w-32 bg-red-600">Adtran</button>
+              <button class="h-10 w-32">IS4S</button>
             </div>
 
             <div class="ml-10">
               <div id="adtran">
-                <h2>Software Engineer Co-Op @ Adtran</h2>
+                <h2>Software Engineer Co-Op @ 
+                  <a href="https://www.adtran.com/" title="Adtran" target="_blank" rel="noreferrer">
+                    Adtran
+                  </a>
+                </h2>
                 <h3>May 2023 - Present</h3>
-                <p>Adding alot of descriptions of my work.
-                  i helped a lot with this and that; maybe this will work
-                  hopefully that scales correctly.
-                </p>
+                <ul>
+                  <li>GitHub App Development</li>
+                  <li>Python Unit/Integration Testing</li>
+                  <li>Frontend Web</li>
+                  <li> wefwfw wwfgwf ewfw wfwfew wff wef wf  ewgwg ahbfa aefbh sehjfb sfgjhb</li>
+                </ul>
               </div>
 
               <div id="is4s" class="hidden">
-                <h2>Technition/Inventory Support @ IS4S</h2>
+                <h2>Technition/Inventory Support @ 
+                  <a href="https://is4s.com/" title="IS4S" target="_blank" rel="noreferrer">
+                    IS4S
+                  </a>
+                </h2>
                 <h3>Jan 2021 - Aug 2022</h3>
                 <p>add rehbghue a lot of description to make this always take up the max width and
                   dont have to wory about the other stuff :)
@@ -101,12 +121,24 @@
     </div>
 
     <div id="header" class="fixed z-100 w-full top-0 flex gap-5 p-5 bg-black">
-      <p class="mr-auto">logo</p>
-      <p>About Me</p>
-      <p>Experience</p>
-      <p>Projects</p>
-      <p>Contact</p>
+      <button id="logo" class="mr-auto"><p>logo</p></button>
+      <a id="about-btn" href="#about">
+        <p><span class="text-primary-purple">01.</span>About</p>
+      </a>
+      <a id="experience-btn" href="#experience">
+        <p><span class="text-primary-purple">02.</span>Experience</p>
+      </a>
+      <a id="projects-btn" href="#projects">
+        <p><span class="text-primary-purple">03.</span>Projects</p>
+      </a>
+      <a id="contact-btn" href="#contact">
+        <p><span class="text-primary-purple">04.</span>Contact</p>
+      </a>
+      <a href="www.google.com" target="_blank" rel="noreferrer">
+        <p>Resume</p>
+      </a>
     </div>
+
     <div id="footer" class="text-center">
       <p>
         Built with insporation from

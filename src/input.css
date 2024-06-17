@@ -7,6 +7,7 @@
     *::before,
     *::after {
         @apply m-0;
+        font-family: "JetBrains Mono", monospace;
     }
 }
 
@@ -18,4 +19,15 @@
         width: 100vw;
         margin: 0;
     }
+}
+
+@media only screen and (max-width: 640px) {
+    #about-btn, #experience-btn, #projects-btn, #contact-btn {
+        display: none;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 155px;
 }
