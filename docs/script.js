@@ -23,9 +23,6 @@ function changeDisplayedExperience(event) {
 
 
 window.onload = () => {
-    app.get('/resume.pdf', function(req, res){
-        res.sendFile(__dirname + '/static/resume.pdf');
-    });
     document.querySelector("#experience").addEventListener("click", (event) => changeDisplayedExperience(event));
     document.querySelector("#logo").addEventListener("click", () => scrollToTop());
 }
