@@ -31,3 +31,12 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 155px;
 }
+
+a:hover,
+button:hover{
+    color: #a35bff;
+}
+
+a img:hover {
+    filter: invert(54%) sepia(51%) saturate(6615%) hue-rotate(241deg) brightness(100%) contrast(101%);
+}
