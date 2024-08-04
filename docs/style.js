@@ -22,6 +22,10 @@ function changeDisplayedExperience(event) {
 }
 
 
+// function generateStars() {
+
+// }
+
 window.onload = () => {
     document.querySelector("#experience").addEventListener("click", (event) => changeDisplayedExperience(event));
     document.querySelector("#logo").addEventListener("click", () => scrollToTop());
