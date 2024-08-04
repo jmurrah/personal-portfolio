@@ -636,6 +636,10 @@ video {
   height: 100vh;
 }
 
+.max-h-64 {
+  max-height: 16rem;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -786,6 +790,11 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -814,8 +823,8 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-@media only screen and (max-width: 865px) {
-  #links {
+@media only screen and (max-width: 1040px) {
+  #wand {
     display: none;
   }
 
@@ -825,7 +834,7 @@ video {
   }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 665px) {
   #about-btn, #experience-btn, #projects-btn, #contact-btn {
     display: none;
   }

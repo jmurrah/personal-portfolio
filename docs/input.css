@@ -11,8 +11,8 @@
     }
 }
 
-@media only screen and (max-width: 865px) {
-    #links {
+@media only screen and (max-width: 1040px) {
+    #wand {
         display: none;
     }
     #content {
@@ -21,7 +21,7 @@
     }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 665px) {
     #about-btn, #experience-btn, #projects-btn, #contact-btn {
         display: none;
     }
