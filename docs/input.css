@@ -11,27 +11,6 @@
     }
 }
 
-@media only screen and (max-width: 1023px) {
-    #wand {
-        display: none;
-    }
-    #content {
-        width: 100vw;
-        margin: 0;
-    }
-    #discord-bouncer #pic {
-        display: none;
-    }
-    #azimuth #pic {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 665px) {
-    #about-btn, #experience-btn, #projects-btn, #contact-btn {
-        display: none;
-    }
-}
 
 html {
     scroll-behavior: smooth;
@@ -45,4 +24,13 @@ button:hover{
 
 a img:hover {
     filter: invert(54%) sepia(51%) saturate(6615%) hue-rotate(241deg) brightness(100%) contrast(101%);
+}
+
+/* New CSS rules for div and text hover effect */
+div:hover {
+    border-color: #a35bff; /* Change border color to purple */
+}
+
+#links div:hover a {
+    color: #a35bff; /* Change text color to purple */
 }
