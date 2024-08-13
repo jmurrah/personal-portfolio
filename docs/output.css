@@ -615,8 +615,8 @@ video {
   margin-top: 0.625rem;
 }
 
-.mt-64 {
-  margin-top: 16rem;
+.mt-60 {
+  margin-top: 15rem;
 }
 
 .flex {
@@ -693,14 +693,6 @@ video {
 
 .items-center {
   align-items: center;
-}
-
-.justify-start {
-  justify-content: flex-start;
-}
-
-.justify-end {
-  justify-content: flex-end;
 }
 
 .justify-center {
@@ -848,15 +840,9 @@ video {
     margin: 0;
   }
 
-  #discord-bouncer img {
+  #discord-bouncer .prj-img {
     margin-left: auto;
     margin-right: auto;
-  }
-}
-
-@media only screen and (max-width: 665px) {
-  #about-btn, #experience-btn, #projects-btn, #contact-btn {
-    display: none;
   }
 }
 
@@ -901,7 +887,7 @@ a img:hover {
   display: inline-block;
   position: relative;
   top: -10px;
-  width: 300px;
+  width: 240px;
   height: 1px;
   margin-left: 20px;
   background-color: white;
@@ -909,6 +895,24 @@ a img:hover {
 
 .work a:first-child {
   color:#a35bff;
+}
+
+@media only screen and (max-width: 685px) {
+  #about-btn, #experience-btn, #projects-btn, #contact-btn {
+    display: none;
+  }
+
+  /* #exp-btns {
+        display: none;
+    } */
+
+  /* #exp-desc {
+        margin-bottom: 20px;
+    } */
+
+  #body > div:not(:last-child) > p:first-child::after {
+    display: none;
+  }
 }
 
 @media (min-width: 640px) {
