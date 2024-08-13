@@ -10,19 +10,20 @@ function changeDisplayedExperience(event) {
 
     if (event.target.tagName.toLowerCase() === 'button') {
         const buttonName = event.target.textContent.trim().toLowerCase();
-
+        console.log(`Button clicked: ${buttonName}`);
         buttons.forEach(button => {
-            button.classList.remove("bg-red-600");
+            button.style.backgroundColor = "";
         });
         descriptions.forEach(description => description.style.display = "none");
 
         document.getElementById(buttonName).style.display = "block";
-        event.target.classList.add("bg-red-600");
+        event.target.style.backgroundColor = "#a35bff";
     }
 }
 
 
 window.onload = () => {
+    document.querySelector("#initial-click").style.backgroundColor = "#a35bff";
     document.querySelector("#experience").addEventListener("click", (event) => changeDisplayedExperience(event));
     document.querySelector("#logo").addEventListener("click", () => scrollToTop());
 }

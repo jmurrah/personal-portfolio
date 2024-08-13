@@ -44,3 +44,37 @@ button:hover{
 a img:hover {
     filter: invert(54%) sepia(51%) saturate(6615%) hue-rotate(241deg) brightness(100%) contrast(101%);
 }
+
+#experience button:hover {
+    color: white;
+    background-color: rgba(163, 91, 255, 0.4);
+}
+
+
+#experience li::before {
+    position: absolute;
+    left: 0px;
+    content: ">";
+    color: #a35bff;
+}
+
+#experience ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+#experience li {
+    list-style-position: outside;
+}
+
+#body > div:not(:last-child) > p:first-child::after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    width: 300px;
+    height: 1px;
+    margin-left: 20px;
+    background-color: white;
+}
