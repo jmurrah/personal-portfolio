@@ -58,10 +58,6 @@ a img:hover {
     margin-bottom: 10px;
 }
 
-#experience li {
-    list-style-position: outside;
-}
-
 #body > div:not(:last-child) > p:first-child::after {
     content: "";
     display: inline-block;
@@ -77,18 +73,28 @@ a img:hover {
     color:#a35bff;
 }
 
+#exp-btns button {
+    flex: 0 0 auto;
+}
 
 @media only screen and (max-width: 685px) {
     #about-btn, #experience-btn, #projects-btn, #contact-btn {
         display: none;
     }
-    /* #exp-btns {
-        display: none;
-    } */
-    /* #exp-desc {
-        margin-bottom: 20px;
-    } */
     #body > div:not(:last-child) > p:first-child::after {
         display: none;
+    }
+    #exp-btns {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    #exp-desc {
+        margin-left: 0;
+    }
+    #exp-cont {
+        flex-direction: column;
+        gap: 16px;
     }
 }
