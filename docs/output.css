@@ -615,8 +615,8 @@ video {
   margin-top: 0.625rem;
 }
 
-.mt-40 {
-  margin-top: 10rem;
+.mt-64 {
+  margin-top: 16rem;
 }
 
 .flex {
@@ -629,6 +629,10 @@ video {
 
 .h-10 {
   height: 2.5rem;
+}
+
+.h-96 {
+  height: 24rem;
 }
 
 .h-auto {
@@ -901,6 +905,10 @@ a img:hover {
   height: 1px;
   margin-left: 20px;
   background-color: white;
+}
+
+.work a:first-child {
+  color:#a35bff;
 }
 
 @media (min-width: 640px) {
