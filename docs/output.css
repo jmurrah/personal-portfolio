@@ -592,8 +592,8 @@ video {
   margin-right: auto;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
 .ml-10 {
@@ -618,6 +618,14 @@ video {
 
 .mt-2\.5 {
   margin-top: 0.625rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .mt-60 {
@@ -676,10 +684,6 @@ video {
   max-width: 64rem;
 }
 
-.max-w-sm {
-  max-width: 24rem;
-}
-
 .grow {
   flex-grow: 1;
 }
@@ -698,6 +702,14 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-10 {
+  gap: 2.5rem;
 }
 
 .gap-2 {
@@ -723,11 +735,6 @@ video {
 .gap-x-12 {
   -moz-column-gap: 3rem;
        column-gap: 3rem;
-}
-
-.gap-x-5 {
-  -moz-column-gap: 1.25rem;
-       column-gap: 1.25rem;
 }
 
 .gap-x-7 {
@@ -760,11 +767,6 @@ video {
 .bg-custom-background {
   --tw-bg-opacity: 1;
   background-color: rgb(10 10 10 / var(--tw-bg-opacity));
-}
-
-.object-contain {
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 
 .p-5 {
@@ -841,22 +843,6 @@ video {
   font-size: 16px;
 }
 
-@media only screen and (max-width: 1023px) {
-  #wand {
-    display: none;
-  }
-
-  #content {
-    width: 100vw;
-    margin: 0;
-  }
-
-  #discord-bouncer .prj-img {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 155px;
@@ -879,6 +865,12 @@ a img:hover {
 #about li::before {
   content: ">";
   color: #a35bff;
+}
+
+#about img {
+  max-width: 270px;
+  aspect-ratio: 3 / 4;
+  align-self: flex-start;
 }
 
 #experience li::before {
@@ -913,6 +905,32 @@ a img:hover {
   flex: 0 0 auto;
 }
 
+@media only screen and (max-width: 1023px) {
+  #wand {
+    display: none;
+  }
+
+  #content {
+    width: 100vw;
+    margin: 0;
+  }
+
+  #discord-bouncer .prj-img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  #abt-inner {
+    flex-direction: column;
+  }
+
+  #about img {
+    align-self: center;
+  }
+}
+
 @media only screen and (max-width: 685px) {
   #about-btn, #experience-btn, #projects-btn, #contact-btn {
     display: none;
@@ -939,11 +957,11 @@ a img:hover {
   }
 }
 
-/* @media only screen and (max-width: 480px) {
-    p {
-
-    }
-} */
+@media only screen and (max-width: 480px) {
+  p {
+    font-size: 15px;
+  }
+}
 
 @media (min-width: 640px) {
   .sm\:flex-row {
