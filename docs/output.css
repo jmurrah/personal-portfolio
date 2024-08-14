@@ -732,14 +732,18 @@ video {
   gap: 16rem;
 }
 
-.gap-x-12 {
-  -moz-column-gap: 3rem;
-       column-gap: 3rem;
-}
-
 .gap-x-7 {
   -moz-column-gap: 1.75rem;
        column-gap: 1.75rem;
+}
+
+.gap-x-8 {
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+
+.gap-y-1 {
+  row-gap: 0.25rem;
 }
 
 .rounded-lg {
@@ -862,15 +866,15 @@ a img:hover {
   background-color: rgba(163, 91, 255, 0.4);
 }
 
-#about li::before {
-  content: ">";
-  color: #a35bff;
-}
-
 #about img {
-  max-width: 270px;
+  max-height: 360px;
   aspect-ratio: 3 / 4;
   align-self: flex-start;
+}
+
+#about li::before, #projects li::before {
+  content: ">";
+  color: #a35bff;
 }
 
 #experience li::before {
@@ -918,6 +922,7 @@ a img:hover {
   #discord-bouncer .prj-img {
     margin-left: auto;
     margin-right: auto;
+    /* order 2 */
   }
 }
 
@@ -958,14 +963,43 @@ a img:hover {
 }
 
 @media only screen and (max-width: 480px) {
-  p {
+  p,
+    #about li,
+    #header h2 {
     font-size: 15px;
+  }
+
+  .sect-head {
+    font-size: 24px;
+  }
+
+  .sect-span,
+    #intro p {
+    font-size: 20px;
+  }
+
+  #intro p {
+    font-size: 20px;
+  }
+
+  #intro h1 {
+    font-size: 48px;
+  }
+
+  #logo p {
+    font-size: 36px;
   }
 }
 
-@media (min-width: 640px) {
-  .sm\:flex-row {
-    flex-direction: row;
+@media only screen and (max-width: 310px) {
+  #contact div {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #content {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 

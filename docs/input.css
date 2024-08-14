@@ -35,15 +35,15 @@ a img:hover {
 }
 
 
-#about li::before {
-    content: ">";
-    color: #a35bff;
-}
-
 #about img {
-    max-width: 270px;
+    max-height: 360px;
     aspect-ratio: 3 / 4;
     align-self: flex-start;
+}
+
+#about li::before, #projects li::before {
+    content: ">";
+    color: #a35bff;
 }
 
 #experience li::before {
@@ -89,6 +89,7 @@ a img:hover {
     #discord-bouncer .prj-img {
         margin-left: auto;
         margin-right: auto;
+        /* order 2 */
     }
 }
 
@@ -124,7 +125,36 @@ a img:hover {
 }
 
 @media only screen and (max-width: 480px) {
-    p {
+    p,
+    #about li,
+    #header h2 {
         font-size: 15px;
+    }
+    .sect-head {
+        font-size: 24px;
+    }
+    .sect-span,
+    #intro p {
+        font-size: 20px;
+    }
+    #intro p {
+        font-size: 20px;
+    }
+    #intro h1 {
+        font-size: 48px;
+    }
+    #logo p {
+        font-size: 36px;
+    }
+}
+
+@media only screen and (max-width: 310px) {
+    #contact div {
+        flex-direction: column;
+        gap: 0;
+    }
+    #content {
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }
