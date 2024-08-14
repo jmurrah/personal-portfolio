@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    font-size: 16px;
+}
+
 @layer base {
     *,
     *::before,
@@ -44,6 +48,11 @@ a img:hover {
     background-color: rgba(163, 91, 255, 0.4);
 }
 
+
+#about li::before {
+    content: ">";
+    color: #a35bff;
+}
 
 #experience li::before {
     position: absolute;
@@ -98,3 +107,9 @@ a img:hover {
         gap: 16px;
     }
 }
+
+/* @media only screen and (max-width: 480px) {
+    p {
+
+    }
+} */

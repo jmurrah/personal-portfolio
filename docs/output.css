@@ -660,10 +660,6 @@ video {
   width: 1.5rem;
 }
 
-.w-96 {
-  width: 24rem;
-}
-
 .w-auto {
   width: auto;
 }
@@ -678,6 +674,10 @@ video {
 
 .max-w-5xl {
   max-width: 64rem;
+}
+
+.max-w-sm {
+  max-width: 24rem;
 }
 
 .grow {
@@ -725,6 +725,11 @@ video {
        column-gap: 3rem;
 }
 
+.gap-x-5 {
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
+}
+
 .gap-x-7 {
   -moz-column-gap: 1.75rem;
        column-gap: 1.75rem;
@@ -755,6 +760,11 @@ video {
 .bg-custom-background {
   --tw-bg-opacity: 1;
   background-color: rgb(10 10 10 / var(--tw-bg-opacity));
+}
+
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .p-5 {
@@ -827,6 +837,10 @@ video {
   transition-duration: 150ms;
 }
 
+:root {
+  font-size: 16px;
+}
+
 @media only screen and (max-width: 1023px) {
   #wand {
     display: none;
@@ -860,6 +874,11 @@ a img:hover {
 #experience button:hover {
   color: white;
   background-color: rgba(163, 91, 255, 0.4);
+}
+
+#about li::before {
+  content: ">";
+  color: #a35bff;
 }
 
 #experience li::before {
@@ -919,6 +938,12 @@ a img:hover {
     gap: 16px;
   }
 }
+
+/* @media only screen and (max-width: 480px) {
+    p {
+
+    }
+} */
 
 @media (min-width: 640px) {
   .sm\:flex-row {
