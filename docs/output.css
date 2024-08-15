@@ -592,6 +592,10 @@ video {
   margin-right: auto;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -684,6 +688,10 @@ video {
   max-width: 64rem;
 }
 
+.flex-1 {
+  flex: 1 1 0%;
+}
+
 .grow {
   flex-grow: 1;
 }
@@ -712,12 +720,12 @@ video {
   gap: 2.5rem;
 }
 
-.gap-2 {
-  gap: 0.5rem;
+.gap-16 {
+  gap: 4rem;
 }
 
-.gap-20 {
-  gap: 5rem;
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .gap-3 {
@@ -909,20 +917,27 @@ a img:hover {
   flex: 0 0 auto;
 }
 
+.prj-img {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 200px;
+  min-width: 100px;
+}
+
+#disc-desc, #azi-desc {
+  flex-shrink: 1;
+  flex-grow: 0;
+}
+
 @media only screen and (max-width: 1023px) {
   #wand {
-    display: none;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   #content {
-    width: 100vw;
-    margin: 0;
-  }
-
-  #discord-bouncer .prj-img {
-    margin-left: auto;
-    margin-right: auto;
-    /* order 2 */
+    margin-left: 52px;
+    margin-right: 52px;
   }
 }
 
@@ -933,6 +948,23 @@ a img:hover {
 
   #about img {
     align-self: center;
+  }
+
+  .prj-img {
+    display: none;
+  }
+
+  #hide {
+    display: block;
+  }
+
+  #wand {
+    display: none;
+  }
+
+  #content {
+    width: 100vw;
+    margin: 0;
   }
 }
 
@@ -989,6 +1021,11 @@ a img:hover {
   #logo p {
     font-size: 36px;
   }
+
+  #content {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 
 @media only screen and (max-width: 310px) {
@@ -1000,11 +1037,5 @@ a img:hover {
   #content {
     padding-left: 16px;
     padding-right: 16px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .lg\:flex-nowrap {
-    flex-wrap: nowrap;
   }
 }

@@ -128,17 +128,19 @@
 
         <div id="projects">
           <p class="sect-head mb-6 text-3xl"><span class="text-primary-purple text-2xl mr-2">03.</span>Personal Projects</p>
-          <div class="flex flex-col gap-20">
+          <div class="flex flex-col gap-16">
+            
             <div id="discord-bouncer" class="text-right">
-              <div class="flex flex-wrap lg:flex-nowrap gap-2">
+              <h2 class="text-2xl">Discord-Bouncer</h2>
+              <div class="flex gap-2">
                 <img class="prj-img max-h-64 w-auto rounded-lg border-2 border-primary-purple" src="./static/tama-bot.jpg"/>
-                <div>
-                  <h2 class="text-2xl">Discord-Bouncer</h2>
-                  <p id="disc-p1">A Discord Bot that leverages Stripe payments for role assignment.</p><br>
-                  <p id="disc-p2">
+                <div id="disc-desc">
+                  <p class="mb-2">A Discord Bot that leverages Stripe payments for role assignment.</p>
+                  <p>
                     Users utilize the Discord Bouncer bot to grant roles and 
                     manage customer access to specific channels.
                   </p>
+                  <img id="hide" class="hidden ml-auto max-h-64 w-auto rounded-lg border-2 border-primary-purple" src="./static/tama-bot.jpg"/>
                   <ul class="flex flex-wrap gap-x-8 gap-y-1">
                     <li class="ml-auto"> Python</li>
                     <li> Docker</li>
@@ -157,13 +159,14 @@
 
             <div id="azimuth">
               <h2 class="text-2xl">Azimuth Calculator</h2>
-              <div class="flex flex-wrap lg:flex-nowrap gap-2">
-                <div>
-                  <p id="azi-p1">Calculate the daily solar azimuth and associated data for a specified period.</p><br>
-                  <p id="azi-p2">
+              <div class="flex gap-2">
+                <div id="azi-desc">
+                  <p class="mb-2">Calculate the daily solar azimuth and associated data for a specified period.</p>
+                  <p>
                     Users are able to utilize the Discord Bouncer bot to grant roles and 
                     thus manage customer access to specific channels.
                   </p>
+                  <img id="hide" class="hidden mr-auto prj-img max-h-56 w-auto rounded-lg border-2 border-primary-purple" src="./static/azimuth.png"/>
                   <ul class="flex flex-wrap gap-x-8">
                     <li> Python</li>
                     <li> Astronomy</li>
@@ -175,7 +178,7 @@
                     </a>
                   </div>
                 </div>
-                <img class="prj-img max-h-56 w-auto rounded-lg border-2 border-primary-purple" src="./static/azimuth.png"/>
+                <img class="flex-1 prj-img max-h-56 w-auto rounded-lg border-2 border-primary-purple" src="./static/azimuth.png"/>
               </div>
             </div>
           </div>
