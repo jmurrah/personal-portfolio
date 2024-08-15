@@ -177,6 +177,11 @@ a img:hover {
     #main {
         margin: 0;
     }
+    #test {
+        max-width: 100%;
+        overflow-x: auto;
+        direction: rtl;
+    }
     #exp-btns {
         display: flex;
         flex-direction: row;
@@ -184,11 +189,6 @@ a img:hover {
         display: flex;
         flex-direction: row;
         direction: ltr;
-    }
-    #test {
-        max-width: 100%;
-        overflow-x: auto;
-        direction: rtl;
     }
     #exp-desc {
         margin-left: 0;
