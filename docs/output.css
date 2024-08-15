@@ -688,10 +688,6 @@ video {
   max-width: 64rem;
 }
 
-.flex-1 {
-  flex: 1 1 0%;
-}
-
 .grow {
   flex-grow: 1;
 }
@@ -917,16 +913,26 @@ a img:hover {
   flex: 0 0 auto;
 }
 
-.prj-img {
+#prj-img-cont {
   flex-shrink: 1;
-  flex-grow: 1;
-  flex-basis: 200px;
-  min-width: 100px;
+  flex-grow: 0;
+  width: 100%;
+  min-width: 200px;
+  max-width: 360px;
+  height: auto;
 }
 
 #disc-desc, #azi-desc {
   flex-shrink: 1;
   flex-grow: 0;
+}
+
+#discord-bouncer .prj-img {
+  aspect-ratio: 376.183 / 256;
+}
+
+#azimuth .prj-img {
+  aspect-ratio: 358.983 / 224;
 }
 
 @media only screen and (max-width: 1023px) {
