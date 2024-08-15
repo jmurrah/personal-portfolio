@@ -624,10 +624,6 @@ video {
   margin-top: 0.625rem;
 }
 
-.mt-20 {
-  margin-top: 5rem;
-}
-
 .mt-4 {
   margin-top: 1rem;
 }
@@ -854,14 +850,9 @@ html, body {
   align-self: safe center;
 }
 
-/* #body {
-    align-self: safe center;
-    align-items: safe center;
-} */
-
-/* #experience {
-    align-self: safe center;
-    align-items: safe center;
+/* #main {
+    margin-left: auto;
+    margin-right: auto;
 } */
 
 a:hover,
@@ -915,7 +906,7 @@ a img:hover {
   margin-bottom: 10px;
 }
 
-#body > div:not(:last-child) > p:first-child::after {
+#main > div:not(:last-child) > p:first-child::after {
   content: "";
   display: inline-block;
   position: relative;
@@ -1016,18 +1007,25 @@ a img:hover {
     display: none;
   }
 
-  #body > div:not(:last-child) > p:first-child::after {
+  #main > div:not(:last-child) > p:first-child::after {
     display: none;
   }
 
+  #main {
+    margin: 0;
+  }
+
   #exp-btns {
+    justify-content:flex-end;
     display: flex;
     flex-direction: row;
+    direction: ltr;
   }
 
   #test {
     max-width: 100%;
     overflow-x: auto;
+    direction: rtl;
   }
 
   #exp-desc {

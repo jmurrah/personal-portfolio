@@ -22,15 +22,11 @@ html, body {
     align-self: safe center;
 }
 
-/* #body {
-    align-self: safe center;
-    align-items: safe center;
+/* #main {
+    margin-left: auto;
+    margin-right: auto;
 } */
 
-/* #experience {
-    align-self: safe center;
-    align-items: safe center;
-} */
 
 a:hover,
 button:hover{
@@ -83,7 +79,7 @@ a img:hover {
     margin-bottom: 10px;
 }
 
-#body > div:not(:last-child) > p:first-child::after {
+#main > div:not(:last-child) > p:first-child::after {
     content: "";
     display: inline-block;
     position: relative;
@@ -175,16 +171,24 @@ a img:hover {
     #about-btn, #experience-btn, #projects-btn, #contact-btn {
         display: none;
     }
-    #body > div:not(:last-child) > p:first-child::after {
+    #main > div:not(:last-child) > p:first-child::after {
         display: none;
+    }
+    #main {
+        margin: 0;
     }
     #exp-btns {
         display: flex;
         flex-direction: row;
+        justify-content:flex-end;
+        display: flex;
+        flex-direction: row;
+        direction: ltr;
     }
     #test {
         max-width: 100%;
         overflow-x: auto;
+        direction: rtl;
     }
     #exp-desc {
         margin-left: 0;
