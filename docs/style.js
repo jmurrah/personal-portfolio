@@ -3,7 +3,6 @@ function scrollToTop () {
     history.replaceState(null, null, window.location.pathname);
 }
 
-
 function changeDisplayedExperience(event) {
     const buttons = document.querySelectorAll("#exp-btns button");
     const descriptions = document.querySelectorAll("#exp-desc div");
@@ -17,7 +16,6 @@ function changeDisplayedExperience(event) {
     document.getElementById(clickedButton).style.display = "block";
     event.target.style.backgroundColor = "#a35bff";
 }
-
 
 window.onload = () => {
     document.querySelector("#initial-click").style.backgroundColor = "#a35bff";

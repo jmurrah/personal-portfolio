@@ -15,10 +15,22 @@
     }
 }
 
-html {
+html, body {
     scroll-behavior: smooth;
     scroll-padding-top: 155px;
+    justify-self: safe center;
+    align-self: safe center;
 }
+
+/* #body {
+    align-self: safe center;
+    align-items: safe center;
+} */
+
+/* #experience {
+    align-self: safe center;
+    align-items: safe center;
+} */
 
 a:hover,
 button:hover{
@@ -90,6 +102,10 @@ a img:hover {
     flex: 0 0 auto;
 }
 
+#exp-btns {
+    width: 100%;
+}
+
 #prj-img-cont {
     flex-shrink: 1;
     flex-grow: 0;
@@ -150,6 +166,9 @@ a img:hover {
         width: 100vw;
         margin: 0;
     }
+    #exp-desc {
+        margin-left: 20px;
+    }
 }
 
 @media only screen and (max-width: 685px) {
@@ -160,9 +179,11 @@ a img:hover {
         display: none;
     }
     #exp-btns {
-        width: 100%;
         display: flex;
         flex-direction: row;
+    }
+    #test {
+        max-width: 100%;
         overflow-x: auto;
     }
     #exp-desc {
