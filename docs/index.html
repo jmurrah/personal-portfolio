@@ -28,8 +28,8 @@
       <div id="body" class="mx-auto flex flex-col justify-center items-center gap-64 max-w-4xl">
         <div id="about">
             <p class="sect-head mb-6 text-3xl"><span class="sect-span text-primary-purple text-2xl mr-2">01.</span>About Me</p>
-            <div id="abt-inner" class="flex justify-center gap-10">
-              <div class="flex flex-col">
+            <div id="abt-inner" class="flex gap-4">
+              <div id="abt-desc" class="flex flex-col">
                 <p>
                   My name is Jacob and I am a software engineer with a passion for learning. 
                   My goal is to create
@@ -53,7 +53,9 @@
                   </ul>
                 </div>
               </div>
-              <img class="w-auto border-primary-purple border-2 rounded-lg" src="./static/image.jpg">
+              <div id="abt-img-cont">
+                <img class="border-primary-purple border-2 rounded-lg" src="./static/profile.jpg">
+              </div>
             </div>
         </div>
 
@@ -142,7 +144,7 @@
                     Users utilize the Discord Bouncer bot to grant roles and 
                     manage customer access to specific channels.
                   </p>
-                  <img id="hide" class="hidden ml-auto max-h-64 w-auto rounded-lg border-2 border-primary-purple" src="./static/tama-bot.jpg"/>
+                  <img id="hide" class="hidden ml-auto rounded-lg border-2 border-primary-purple" src="./static/tama-bot.jpg"/>
                   <ul class="flex flex-wrap gap-x-8 gap-y-1">
                     <li class="ml-auto"> Python</li>
                     <li> Docker</li>
@@ -168,7 +170,7 @@
                     Users are able to utilize the Discord Bouncer bot to grant roles and 
                     thus manage customer access to specific channels.
                   </p>
-                  <img id="hide" class="hidden mr-auto prj-img max-h-56 w-auto rounded-lg border-2 border-primary-purple" src="./static/azimuth.png"/>
+                  <img id="hide" class="hidden mr-auto prj-img rounded-lg border-2 border-primary-purple" src="./static/azimuth.png"/>
                   <ul class="flex flex-wrap gap-x-8">
                     <li> Python</li>
                     <li> Astronomy</li>

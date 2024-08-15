@@ -656,24 +656,12 @@ video {
   height: 100vh;
 }
 
-.max-h-56 {
-  max-height: 14rem;
-}
-
-.max-h-64 {
-  max-height: 16rem;
-}
-
 .w-32 {
   width: 8rem;
 }
 
 .w-6 {
   width: 1.5rem;
-}
-
-.w-auto {
-  width: auto;
 }
 
 .w-full {
@@ -712,10 +700,6 @@ video {
   gap: 0.25rem;
 }
 
-.gap-10 {
-  gap: 2.5rem;
-}
-
 .gap-16 {
   gap: 4rem;
 }
@@ -726,6 +710,10 @@ video {
 
 .gap-3 {
   gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .gap-5 {
@@ -870,15 +858,28 @@ a img:hover {
   background-color: rgba(163, 91, 255, 0.4);
 }
 
-#about img {
-  max-height: 360px;
-  aspect-ratio: 3 / 4;
-  align-self: flex-start;
-}
-
 #about li::before, #projects li::before {
   content: ">";
   color: #a35bff;
+}
+
+#about img {
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  height: auto;
+}
+
+#abt-img-cont {
+  flex-shrink: 1;
+  flex-grow: 1;
+  min-width: 200px;
+  max-width: 270px;
+  height: auto;
+}
+
+#abt-desc {
+  max-width: 610px;
+  flex-shrink: 1;
 }
 
 #experience li::before {
@@ -899,7 +900,7 @@ a img:hover {
   display: inline-block;
   position: relative;
   top: -10px;
-  width: 240px;
+  width: 220px;
   height: 1px;
   margin-left: 20px;
   background-color: white;
@@ -917,7 +918,6 @@ a img:hover {
   flex-shrink: 1;
   flex-grow: 0;
   width: 100%;
-  min-width: 200px;
   max-width: 360px;
   height: auto;
 }
@@ -953,7 +953,16 @@ a img:hover {
   }
 
   #about img {
+    max-width: 240px;
+  }
+
+  #abt-img-cont {
     align-self: center;
+    min-width: 0;
+  }
+
+  #prj-img-cont {
+    display: none;
   }
 
   .prj-img {
