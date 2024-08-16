@@ -736,12 +736,12 @@ video {
   gap: 0.25rem;
 }
 
-.gap-16 {
-  gap: 4rem;
-}
-
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-20 {
+  gap: 5rem;
 }
 
 .gap-3 {
@@ -760,9 +760,18 @@ video {
   gap: 16rem;
 }
 
+.gap-x-7 {
+  -moz-column-gap: 1.75rem;
+       column-gap: 1.75rem;
+}
+
 .gap-x-8 {
   -moz-column-gap: 2rem;
        column-gap: 2rem;
+}
+
+.gap-y-0 {
+  row-gap: 0px;
 }
 
 .gap-y-1 {
@@ -1072,6 +1081,10 @@ a img:hover,
   #exp-desc {
     margin-left: 20px;
   }
+
+  #projects > div {
+    gap: 40px;
+  }
 }
 
 @media only screen and (min-width: 686px) {
@@ -1120,6 +1133,10 @@ a img:hover,
   #exp-cont {
     flex-direction: column;
     gap: 16px;
+  }
+
+  html, body {
+    scroll-padding-top: 90px;
   }
 }
 
@@ -1188,5 +1205,17 @@ a img:hover,
 @media only screen and (max-height: 510px) {
   html, body {
     scroll-padding-top: 90px;
+  }
+}
+
+@media only screen and (max-height: 440px) {
+  #leet-img {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 395px) {
+  #wand {
+    display: none;
   }
 }
