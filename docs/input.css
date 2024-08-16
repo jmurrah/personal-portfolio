@@ -257,7 +257,8 @@ a img:hover,
     #about li,
     #projects li,
     #header h2,
-    #contact div {
+    #contact div,
+    #footer {
         font-size: 15px;
     }
     .sect-head {
