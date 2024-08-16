@@ -29,11 +29,12 @@ html, body {
 
 
 a:hover,
-button:hover{
+button:hover {
     color: #a35bff;
 }
 
-a img:hover {
+a img:hover,
+#menu-btn:hover {
     filter: invert(54%) sepia(51%) saturate(6615%) hue-rotate(241deg) brightness(100%) contrast(101%);
 }
 
@@ -123,6 +124,35 @@ a img:hover {
     aspect-ratio: 358.983 / 224;
 }
 
+#menu {
+    z-index: 1000;
+}
+
+.blur-effect {
+    filter: blur(5px);
+}
+
+#exp-desc > div > h2 > a {
+    position: relative;
+    text-decoration: none;
+    color: #a35bff;
+    display: inline-block;
+}
+
+#exp-desc > div > h2 > a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.15s ease-in-out;
+}
+
+#exp-desc > div > h2 > a:hover::after {
+    width: 100%;
+}
 
 @media only screen and (max-width: 1023px) {
     #wand {
@@ -165,14 +195,6 @@ a img:hover {
     #exp-desc {
         margin-left: 20px;
     }
-}
-
-#menu {
-    z-index: 1000;
-}
-
-.blur-effect {
-    filter: blur(5px);
 }
 
 @media only screen and (min-width: 686px) {
@@ -258,5 +280,11 @@ a img:hover {
     #content {
         padding-left: 16px;
         padding-right: 16px;
+    }
+}
+
+@media only screen and (max-height: 510px) {
+    html, body {
+        scroll-padding-top: 90px;
     }
 }

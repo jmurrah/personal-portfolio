@@ -35,6 +35,7 @@ function closeMenu() {
 
 function handleResize() {
     if (window.innerWidth >= 686) {
+        closeMenu();
         document.body.classList.remove("blur-effect");
         document.getElementById("menu").style.display = "none";
     } else {
