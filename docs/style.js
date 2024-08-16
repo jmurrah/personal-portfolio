@@ -56,6 +56,7 @@ window.onload = () => {
             closeMenu();
         }
     });
+    document.querySelector("#menu-close").addEventListener("click", () => closeMenu());
     document.querySelectorAll("#menu a:not(:last-child)").forEach(button => {
         button.addEventListener("click", () => closeMenu());
     });
