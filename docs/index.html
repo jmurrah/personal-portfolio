@@ -54,7 +54,7 @@
         </div>
 
         <div id="experience" class="flex flex-col">
-          <p class="sect-head mb-6 text-3xl"><span class="text-primary-purple text-2xl mr-2">02.</span>Where I've Worked</p>
+          <p class="sect-head mb-6 text-3xl"><span class="sect-span text-primary-purple text-2xl mr-2">02.</span>Where I've Worked</p>
           <div id="exp-cont" class="flex">
             <div id="exp-btns-cont">
               <div id="exp-btns" class="flex flex-col">
@@ -127,7 +127,7 @@
         </div>
 
         <div id="projects">
-          <p class="sect-head mb-6 text-3xl"><span class="text-primary-purple text-2xl mr-2">03.</span>Personal Projects</p>
+          <p class="sect-head mb-6 text-3xl"><span class="sect-span text-primary-purple text-2xl mr-2">03.</span>Personal Projects</p>
           <div class="flex flex-col gap-16">
             
             <div id="discord-bouncer" class="text-right">
@@ -221,7 +221,7 @@
       <img class="h-auto w-6" src="./static/fern-staff.png"/>
     </div>
 
-    <div id="header" class="fixed z-100 w-full top-0 flex gap-5 p-5 bg-black items-center">
+    <div id="header" class="fixed z-50 w-full top-0 flex gap-5 p-5 bg-custom-background items-center">
       <button id="logo" class="mr-auto"><p class="text-5xl">JM</p></button>
       <a id="about-btn" href="#about">
         <p><span class="text-primary-purple">01.</span>About</p>
@@ -235,7 +235,28 @@
       <a id="contact-btn" href="#contact">
         <p><span class="text-primary-purple">04.</span>Contact</p>
       </a>
-      <a class="rounded-md border-2 border-primary-purple px-3 py-2" href="./JacobMurrah_Resume.pdf" target="_blank" rel="noreferrer">
+      <a id="resume-btn" class="rounded-md border-2 border-primary-purple px-3 py-2" href="./JacobMurrah_Resume.pdf" target="_blank" rel="noreferrer">
+        <h2 class="text-primary-purple">Resume</h2>
+      </a>
+      <button id="menu-btn" class="hidden">
+        <img class="w-10" src="./static/menu.svg">
+      </button>
+    </div>
+
+    <div id="menu" class="hidden fixed ml-20 top-0 right-0 flex flex-col max-w-sm bg-black w-full h-screen items-center justify-evenly">
+      <a id="about-btn" href="#about">
+        <p><span class="text-primary-purple">01.</span>About</p>
+      </a>
+      <a id="experience-btn" href="#experience">
+        <p><span class="text-primary-purple">02.</span>Experience</p>
+      </a>
+      <a id="projects-btn" href="#projects">
+        <p><span class="text-primary-purple">03.</span>Projects</p>
+      </a>
+      <a id="contact-btn" href="#contact">
+        <p><span class="text-primary-purple">04.</span>Contact</p>
+      </a>
+      <a id="resume-btn" class="rounded-md border-2 border-primary-purple px-3 py-2" href="./JacobMurrah_Resume.pdf" target="_blank" rel="noreferrer">
         <h2 class="text-primary-purple">Resume</h2>
       </a>
     </div>

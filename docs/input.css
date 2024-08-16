@@ -167,9 +167,26 @@ a img:hover {
     }
 }
 
+#menu {
+    z-index: 1000;
+}
+
+.blur-effect {
+    filter: blur(5px);
+}
+
+@media only screen and (min-width: 686px) {
+    #menu, #menu-btn {
+        display: none !important;
+    }
+}
+
 @media only screen and (max-width: 685px) {
-    #about-btn, #experience-btn, #projects-btn, #contact-btn {
+    #header a {
         display: none;
+    }
+    #menu-btn {
+        display: block;
     }
     #main > div:not(:last-child) > p:first-child::after {
         display: none;
@@ -202,14 +219,17 @@ a img:hover {
 @media only screen and (max-width: 480px) {
     p,
     #about li,
-    #header h2 {
+    #projects li,
+    #header h2,
+    #contact div {
         font-size: 15px;
     }
     .sect-head {
         font-size: 24px;
     }
     .sect-span,
-    #intro p {
+    #intro p,
+    #projects h2 {
         font-size: 20px;
     }
     #intro p {
@@ -224,6 +244,9 @@ a img:hover {
     #content {
         padding-left: 24px;
         padding-right: 24px;
+    }
+    #header button img {
+        width: 32px;
     }
 }
 

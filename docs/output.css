@@ -573,8 +573,16 @@ video {
   bottom: 0px;
 }
 
+.right-0 {
+  right: 0px;
+}
+
 .top-0 {
   top: 0px;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .mx-10 {
@@ -602,6 +610,10 @@ video {
 
 .ml-10 {
   margin-left: 2.5rem;
+}
+
+.ml-20 {
+  margin-left: 5rem;
 }
 
 .ml-auto {
@@ -656,6 +668,10 @@ video {
   height: 100vh;
 }
 
+.w-10 {
+  width: 2.5rem;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -674,6 +690,10 @@ video {
 
 .max-w-5xl {
   max-width: 64rem;
+}
+
+.max-w-sm {
+  max-width: 24rem;
 }
 
 .grow {
@@ -698,6 +718,10 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .gap-1 {
@@ -997,9 +1021,27 @@ a img:hover {
   }
 }
 
+#menu {
+  z-index: 1000;
+}
+
+.blur-effect {
+  filter: blur(5px);
+}
+
+@media only screen and (min-width: 686px) {
+  #menu, #menu-btn {
+    display: none !important;
+  }
+}
+
 @media only screen and (max-width: 685px) {
-  #about-btn, #experience-btn, #projects-btn, #contact-btn {
+  #header a {
     display: none;
+  }
+
+  #menu-btn {
+    display: block;
   }
 
   #main > div:not(:last-child) > p:first-child::after {
@@ -1039,7 +1081,9 @@ a img:hover {
 @media only screen and (max-width: 480px) {
   p,
     #about li,
-    #header h2 {
+    #projects li,
+    #header h2,
+    #contact div {
     font-size: 15px;
   }
 
@@ -1048,7 +1092,8 @@ a img:hover {
   }
 
   .sect-span,
-    #intro p {
+    #intro p,
+    #projects h2 {
     font-size: 20px;
   }
 
@@ -1067,6 +1112,10 @@ a img:hover {
   #content {
     padding-left: 24px;
     padding-right: 24px;
+  }
+
+  #header button img {
+    width: 32px;
   }
 }
 
