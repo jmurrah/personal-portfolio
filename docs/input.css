@@ -177,18 +177,18 @@ a img:hover {
     #main {
         margin: 0;
     }
-    #test {
+    #exp-btns-cont {
         max-width: 100%;
-        overflow-x: auto;
+        margin-right: auto;
         direction: rtl;
     }
     #exp-btns {
-        display: flex;
-        flex-direction: row;
-        justify-content:flex-end;
-        display: flex;
-        flex-direction: row;
         direction: ltr;
+        overflow-x: auto;
+    }
+    #exp-btns-inner {
+        display: flex;
+        flex-direction: row;
     }
     #exp-desc {
         margin-left: 0;
