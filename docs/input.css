@@ -104,7 +104,7 @@ a img:hover,
     width: 100%;
 }
 
-#prj-img-cont {
+.prj-img-cont {
     flex-shrink: 1;
     flex-grow: 0;
     width: 100%;
@@ -178,7 +178,7 @@ a img:hover,
         align-self: center;
         min-width: 0;
     }
-    #prj-img-cont {
+    .prj-img-cont {
         display: none;
     }
     .prj-img {
