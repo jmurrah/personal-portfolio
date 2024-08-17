@@ -22,12 +22,6 @@ html, body {
     align-self: safe center;
 }
 
-/* #main {
-    margin-left: auto;
-    margin-right: auto;
-} */
-
-
 a:hover,
 button:hover {
     color: #a35bff;
@@ -135,7 +129,9 @@ a img:hover,
 }
 
 #exp-desc > div > h2 > a,
-#about a {
+#about a,
+#contact a,
+#footer a {
   position: relative;
   text-decoration: none;
   color: #a35bff;
@@ -143,7 +139,9 @@ a img:hover,
 }
 
 #exp-desc > div > h2 > a::after,
-#about a::after {
+#about a::after,
+#contact a::after,
+#footer a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -155,7 +153,9 @@ a img:hover,
 }
 
 #exp-desc > div > h2 > a:hover::after,
-#about a:hover::after {
+#about a:hover::after,
+#contact a:hover::after,
+#footer a:hover::after {
   width: 100%;
 }
 
