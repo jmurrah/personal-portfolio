@@ -1002,14 +1002,16 @@ a img:hover,
   pointer-events: none;
 }
 
-#exp-desc > div > h2 > a {
+#exp-desc > div > h2 > a,
+#about a {
   position: relative;
   text-decoration: none;
   color: #a35bff;
   display: inline-block;
 }
 
-#exp-desc > div > h2 > a::after {
+#exp-desc > div > h2 > a::after,
+#about a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -1020,7 +1022,8 @@ a img:hover,
   transition: width 0.15s ease-in-out;
 }
 
-#exp-desc > div > h2 > a:hover::after {
+#exp-desc > div > h2 > a:hover::after,
+#about a:hover::after {
   width: 100%;
 }
 

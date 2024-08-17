@@ -134,26 +134,29 @@ a img:hover,
     pointer-events: none;
 }
 
-#exp-desc > div > h2 > a {
-    position: relative;
-    text-decoration: none;
-    color: #a35bff;
-    display: inline-block;
+#exp-desc > div > h2 > a,
+#about a {
+  position: relative;
+  text-decoration: none;
+  color: #a35bff;
+  display: inline-block;
 }
 
-#exp-desc > div > h2 > a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 1px;
-    background-color: currentColor;
-    transition: width 0.15s ease-in-out;
+#exp-desc > div > h2 > a::after,
+#about a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.15s ease-in-out;
 }
 
-#exp-desc > div > h2 > a:hover::after {
-    width: 100%;
+#exp-desc > div > h2 > a:hover::after,
+#about a:hover::after {
+  width: 100%;
 }
 
 @media only screen and (max-width: 1023px) {
