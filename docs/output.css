@@ -447,8 +447,8 @@ video {
 }
 
 *,
-    *::before,
-    *::after {
+  *::before,
+  *::after {
   margin: 0px;
   font-family: "JetBrains Mono", monospace;
 }
@@ -708,6 +708,14 @@ video {
   max-width: 64rem;
 }
 
+.flex-none {
+  flex: none;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -884,7 +892,8 @@ video {
   font-size: 16px;
 }
 
-html, body {
+html,
+body {
   scroll-behavior: smooth;
   scroll-padding-top: 155px;
   justify-self: safe center;
@@ -907,7 +916,8 @@ a img:hover,
   background-color: rgba(163, 91, 255, 0.4);
 }
 
-#about li::before, #projects li::before {
+#about li::before,
+#projects li::before {
   content: ">";
   color: #a35bff;
 }
@@ -956,15 +966,7 @@ a img:hover,
 }
 
 .work a:first-child {
-  color:#a35bff;
-}
-
-#exp-btns button {
-  flex: 0 0 auto;
-}
-
-#exp-btns {
-  width: 100%;
+  color: #a35bff;
 }
 
 .prj-img-cont {
@@ -975,7 +977,8 @@ a img:hover,
   height: auto;
 }
 
-#disc-desc, #azi-desc {
+#disc-desc,
+#azi-desc {
   flex-shrink: 1;
   flex-grow: 0;
 }
@@ -1011,7 +1014,7 @@ a img:hover,
 #about a::after,
 #contact a::after,
 #footer a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -1092,7 +1095,8 @@ a img:hover,
 }
 
 @media only screen and (min-width: 686px) {
-  #menu, #menu-btn {
+  #menu,
+  #menu-btn {
     display: none !important;
   }
 }
@@ -1139,18 +1143,19 @@ a img:hover,
     gap: 16px;
   }
 
-  html, body {
+  html,
+  body {
     scroll-padding-top: 90px;
   }
 }
 
 @media only screen and (max-width: 480px) {
   p,
-    #about li,
-    #projects li,
-    #header h2,
-    #contact div,
-    #footer {
+  #about li,
+  #projects li,
+  #header h2,
+  #contact div,
+  #footer {
     font-size: 15px;
   }
 
@@ -1159,8 +1164,8 @@ a img:hover,
   }
 
   .sect-span,
-    #intro p,
-    #projects h2 {
+  #intro p,
+  #projects h2 {
     font-size: 20px;
   }
 
@@ -1208,7 +1213,8 @@ a img:hover,
 }
 
 @media only screen and (max-height: 510px) {
-  html, body {
+  html,
+  body {
     scroll-padding-top: 90px;
   }
 }
@@ -1222,5 +1228,15 @@ a img:hover,
 @media only screen and (max-height: 395px) {
   #wand {
     display: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:w-full {
+    width: 100%;
+  }
+
+  .sm\:flex-col {
+    flex-direction: column;
   }
 }

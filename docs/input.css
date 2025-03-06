@@ -3,129 +3,124 @@
 @tailwind utilities;
 
 :root {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 @layer base {
-    *,
-    *::before,
-    *::after {
-        @apply m-0;
-        font-family: "JetBrains Mono", monospace;
-    }
+  *,
+  *::before,
+  *::after {
+    @apply m-0;
+    font-family: "JetBrains Mono", monospace;
+  }
 }
 
-html, body {
-    scroll-behavior: smooth;
-    scroll-padding-top: 155px;
-    justify-self: safe center;
-    align-self: safe center;
+html,
+body {
+  scroll-behavior: smooth;
+  scroll-padding-top: 155px;
+  justify-self: safe center;
+  align-self: safe center;
 }
 
 a:hover,
 button:hover {
-    color: #a35bff;
+  color: #a35bff;
 }
 
 a img:hover,
 #menu-btn:hover,
 #menu-close:hover {
-    filter: invert(54%) sepia(51%) saturate(6615%) hue-rotate(241deg) brightness(100%) contrast(101%);
+  filter: invert(54%) sepia(51%) saturate(6615%) hue-rotate(241deg) brightness(100%) contrast(101%);
 }
 
 #experience button:hover {
-    color: white;
-    background-color: rgba(163, 91, 255, 0.4);
+  color: white;
+  background-color: rgba(163, 91, 255, 0.4);
 }
 
-#about li::before, #projects li::before {
-    content: ">";
-    color: #a35bff;
+#about li::before,
+#projects li::before {
+  content: ">";
+  color: #a35bff;
 }
 
 #about img {
-    aspect-ratio: 3 / 4;
-    width: 100%;
-    height: auto;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  height: auto;
 }
 
 #abt-img-cont {
-    flex-shrink: 1;
-    flex-grow: 1;
-    min-width: 200px;
-    max-width: 270px;
-    height: auto;
+  flex-shrink: 1;
+  flex-grow: 1;
+  min-width: 200px;
+  max-width: 270px;
+  height: auto;
 }
 
 #abt-desc {
-    max-width: 610px;
-    flex-shrink: 1;
+  max-width: 610px;
+  flex-shrink: 1;
 }
 
 #experience li::before {
-    position: absolute;
-    left: 0px;
-    content: ">";
-    color: #a35bff;
+  position: absolute;
+  left: 0px;
+  content: ">";
+  color: #a35bff;
 }
 
 #experience ul li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
 }
 
 #main > div:not(:last-child) > p:first-child::after {
-    content: "";
-    display: inline-block;
-    position: relative;
-    top: -10px;
-    width: 220px;
-    height: 1px;
-    margin-left: 20px;
-    background-color: white;
+  content: "";
+  display: inline-block;
+  position: relative;
+  top: -10px;
+  width: 220px;
+  height: 1px;
+  margin-left: 20px;
+  background-color: white;
 }
 
 .work a:first-child {
-    color:#a35bff;
-}
-
-#exp-btns button {
-    flex: 0 0 auto;
-}
-
-#exp-btns {
-    width: 100%;
+  color: #a35bff;
 }
 
 .prj-img-cont {
-    flex-shrink: 1;
-    flex-grow: 0;
-    width: 100%;
-    max-width: 360px;
-    height: auto;
+  flex-shrink: 1;
+  flex-grow: 0;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
 }
 
-#disc-desc, #azi-desc {
-    flex-shrink: 1;
-    flex-grow: 0;
+#disc-desc,
+#azi-desc {
+  flex-shrink: 1;
+  flex-grow: 0;
 }
 
 #discord-bouncer .prj-img {
-    aspect-ratio: 376.183 / 256;
+  aspect-ratio: 376.183 / 256;
 }
 
 #azimuth .prj-img {
-    aspect-ratio: 358.983 / 224;
+  aspect-ratio: 358.983 / 224;
 }
 
 #menu {
-    z-index: 1000;
+  z-index: 1000;
 }
 
 .blur-effect {
-    filter: blur(5px);
-    pointer-events: none;
+  filter: blur(5px);
+  pointer-events: none;
 }
 
 #exp-desc > div > h2 > a,
@@ -142,7 +137,7 @@ a img:hover,
 #about a::after,
 #contact a::after,
 #footer a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -160,168 +155,171 @@ a img:hover,
 }
 
 @media only screen and (max-width: 1023px) {
-    #wand {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    #content {
-        margin-left: 52px;
-        margin-right: 52px;
-    }
+  #wand {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #content {
+    margin-left: 52px;
+    margin-right: 52px;
+  }
 }
 
 @media only screen and (max-width: 780px) {
-    #abt-inner {
-        flex-direction: column;
-    }
-    #about img {
-        max-width: 240px;
-    }
-    #abt-img-cont {
-        align-self: center;
-        min-width: 0;
-    }
-    .prj-img-cont {
-        display: none;
-    }
-    .prj-img {
-        display: none;
-    }
-    .hide-cont {
-        display: block;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .hide {
-        display: block;
-    }
-    #wand {
-        display: none;
-    }
-    #content {
-        width: 100vw;
-        margin: 0;
-    }
-    #exp-desc {
-        margin-left: 20px;
-    }
-    #projects > div {
-        gap: 40px;
-    }
+  #abt-inner {
+    flex-direction: column;
+  }
+  #about img {
+    max-width: 240px;
+  }
+  #abt-img-cont {
+    align-self: center;
+    min-width: 0;
+  }
+  .prj-img-cont {
+    display: none;
+  }
+  .prj-img {
+    display: none;
+  }
+  .hide-cont {
+    display: block;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hide {
+    display: block;
+  }
+  #wand {
+    display: none;
+  }
+  #content {
+    width: 100vw;
+    margin: 0;
+  }
+  #exp-desc {
+    margin-left: 20px;
+  }
+  #projects > div {
+    gap: 40px;
+  }
 }
 
 @media only screen and (min-width: 686px) {
-    #menu, #menu-btn {
-        display: none !important;
-    }
+  #menu,
+  #menu-btn {
+    display: none !important;
+  }
 }
 
 @media only screen and (max-width: 685px) {
-    #header a {
-        display: none;
-    }
-    #menu-btn {
-        display: block;
-    }
-    #main > div:not(:last-child) > p:first-child::after {
-        display: none;
-    }
-    #main {
-        margin: 0;
-    }
-    #exp-btns-cont {
-        max-width: 100%;
-        margin-right: auto;
-        direction: rtl;
-    }
-    #exp-btns {
-        direction: ltr;
-        overflow-x: auto;
-    }
-    #exp-btns-inner {
-        display: flex;
-        flex-direction: row;
-    }
-    #exp-desc {
-        margin-left: 0;
-    }
-    #exp-cont {
-        flex-direction: column;
-        gap: 16px;
-    }
-    html, body {
-        scroll-padding-top: 90px;
-    }
+  #header a {
+    display: none;
+  }
+  #menu-btn {
+    display: block;
+  }
+  #main > div:not(:last-child) > p:first-child::after {
+    display: none;
+  }
+  #main {
+    margin: 0;
+  }
+  #exp-btns-cont {
+    max-width: 100%;
+    margin-right: auto;
+    direction: rtl;
+  }
+  #exp-btns {
+    direction: ltr;
+    overflow-x: auto;
+  }
+  #exp-btns-inner {
+    display: flex;
+    flex-direction: row;
+  }
+  #exp-desc {
+    margin-left: 0;
+  }
+  #exp-cont {
+    flex-direction: column;
+    gap: 16px;
+  }
+  html,
+  body {
+    scroll-padding-top: 90px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-    p,
-    #about li,
-    #projects li,
-    #header h2,
-    #contact div,
-    #footer {
-        font-size: 15px;
-    }
-    .sect-head {
-        font-size: 24px;
-    }
-    .sect-span,
-    #intro p,
-    #projects h2 {
-        font-size: 20px;
-    }
-    #intro p {
-        font-size: 20px;
-    }
-    #intro h1 {
-        font-size: 48px;
-    }
-    #logo p {
-        font-size: 36px;
-    }
-    #content {
-        padding-left: 24px;
-        padding-right: 24px;
-    }
-    #header button img {
-        width: 32px;
-    }
-    #menu-close {
-        margin-top: 24px;
-        margin-right: 20px;
-    }
+  p,
+  #about li,
+  #projects li,
+  #header h2,
+  #contact div,
+  #footer {
+    font-size: 15px;
+  }
+  .sect-head {
+    font-size: 24px;
+  }
+  .sect-span,
+  #intro p,
+  #projects h2 {
+    font-size: 20px;
+  }
+  #intro p {
+    font-size: 20px;
+  }
+  #intro h1 {
+    font-size: 48px;
+  }
+  #logo p {
+    font-size: 36px;
+  }
+  #content {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  #header button img {
+    width: 32px;
+  }
+  #menu-close {
+    margin-top: 24px;
+    margin-right: 20px;
+  }
 }
 
 @media only screen and (max-width: 330px) {
-    #contact div {
-        flex-direction: column;
-        gap: 0;
-    }
-    #content {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    #menu {
-        width: 100%;
-    }
+  #contact div {
+    flex-direction: column;
+    gap: 0;
+  }
+  #content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  #menu {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-height: 510px) {
-    html, body {
-        scroll-padding-top: 90px;
-    }
+  html,
+  body {
+    scroll-padding-top: 90px;
+  }
 }
 
 @media only screen and (max-height: 440px) {
-    #leet-img {
-        display: none;
-    }
+  #leet-img {
+    display: none;
+  }
 }
 
 @media only screen and (max-height: 395px) {
-    #wand {
-        display: none;
-    }
+  #wand {
+    display: none;
+  }
 }
