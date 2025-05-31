@@ -32,8 +32,10 @@
           <div id="abt-inner" class="flex gap-4">
             <div id="abt-desc" class="flex flex-col">
               <p>
-                My name is Jacob and I am a software engineer with an eagerness to learn. I am
-                currently a student at
+                Hello! My name is <strong>Jacob</strong> and I am a
+                <strong>software engineer</strong> who desires <strong>simplicity</strong> and
+                <strong>speed</strong> in my daily life and the way I write code. I am currently a
+                student at
                 <a
                   class="text-primary-purple"
                   href="https://www.auburn.edu/"
@@ -42,7 +44,7 @@
                   rel="noreferrer"
                   >Auburn University</a
                 >
-                pursuing a Bachelor's degree in
+                pursuing a <strong>Bachelor's degree</strong> in
                 <a
                   class="text-primary-purple"
                   href="https://bulletin.auburn.edu/undergraduate/samuelginncollegeofengineering/departmentofcomputerscienceandsoftwareengineering/softwareengineering_major/"
@@ -51,17 +53,10 @@
                   rel="noreferrer"
                   >Software Engineering</a
                 >. I have a passion for
-                <a
-                  class="text-primary-purple"
-                  href="https://www.mongodb.com/resources/basics/full-stack-development"
-                  title="Full stack"
-                  target="_blank"
-                  rel="noreferrer"
-                  >full stack</a
-                >
-                development and writing good code. My goal is to understand how modern applications
-                are built, interacted with, and maintained.
-                <br /><br />
+                <strong>full stack</strong>
+                development and writing <strong>clean code</strong>. My goal is to have a
+                <strong>deep understanding</strong> of how modern applications are built, interacted
+                with, and maintained. <br /><br />
                 To date, I have had the privilege of collaborating with various teams and engineers
                 during my time at
                 <a
@@ -72,7 +67,7 @@
                   rel="noreferrer"
                   >IS4S</a
                 >
-                and throughout my 3 co-op terms at
+                and throughout my <strong>3 co-op terms</strong> at
                 <a
                   class="text-primary-purple"
                   href="https://www.adtran.com/"
@@ -89,20 +84,18 @@
                   rel="noreferrer"
                   >AT&T</a
                 >
-                this summer where I'll further enhance my development skills!
+                this summer where I'll keep learning about the field I love!
 
                 <br /><br />Here are a few technologies I've been working with recently:
               </p>
               <div class="flex mt-4 w-full">
-                <ul class="mr-auto flex flex-col gap-1">
-                  <li>Python</li>
-                  <li>Go</li>
-                  <li>JavaScript</li>
-                </ul>
-                <ul class="mr-auto flex flex-col gap-1">
-                  <li>AWS</li>
-                  <li>Docker</li>
-                  <li>SQL</li>
+                <ul class="mr-auto flex flex-wrap gap-x-4 gap-y-2">
+                  <li class="tag">Python</li>
+                  <li class="tag">Go</li>
+                  <li class="tag">JavaScript</li>
+                  <li class="tag">AWS</li>
+                  <li class="tag">Docker</li>
+                  <li class="tag">SQL</li>
                 </ul>
               </div>
             </div>
@@ -224,8 +217,61 @@
             <span class="sect-span text-primary-purple text-2xl mr-2">03.</span>Personal Projects
           </p>
           <div class="flex flex-col gap-20">
+            <div id="leetcode-repetition">
+              <h2 class="text-2xl special-underline">Leetcode Repetition Extension</h2>
+              <div class="flex gap-2">
+                <div id="lre-desc" class="flex flex-col gap-2">
+                  <p>
+                    A web extension that helps users master LeetCode problems with spaced
+                    repetition.
+                  </p>
+                  <div class="hide-cont object-contain">
+                    <img
+                      class="hide hidden rounded-lg border-2 border-primary-purple"
+                      src="./static/leetcode-repetition.jpg"
+                    />
+                  </div>
+                  <p>
+                    Users complete LeetCode problems and specify when they would like to repeat them. The
+                    extension tracks repeat dates, helping users land the job they want.
+                  </p>
+                  <ul class="flex flex-wrap gap-x-4 gap-y-2 my-2">
+                    <li class="tag">Go</li>
+                    <li class="tag">JavaScript</li>
+                    <li class="tag">AWS</li>
+                    <li class="tag">Supabase</li>
+                  </ul>
+                  <div class="flex gap-4">
+                    <a
+                      href="https://github.com/leetcode-repetition"
+                      title="GitHub"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <img src="./static/github.svg" />
+                    </a>
+                    <a
+                      class="mr-auto"
+                      href="https://leetcode-repetition.murrah.dev"
+                      title="LeetCode Repetition Extension"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <img src="./static/external-link.svg" />
+                    </a>
+                  </div>
+                </div>
+                <div class="prj-img-cont">
+                  <img
+                    class="prj-img rounded-lg border-2 border-primary-purple"
+                    src="./static/leetcode-repetition.jpg"
+                  />
+                </div>
+              </div>
+            </div>
+
             <div id="discord-bouncer" class="text-right">
-              <h2 class="text-2xl">Discord Bouncer</h2>
+              <h2 class="text-2xl special-underline">Discord Bouncer</h2>
               <div class="flex gap-2">
                 <div class="prj-img-cont">
                   <img
@@ -234,7 +280,10 @@
                   />
                 </div>
                 <div id="disc-desc" class="flex flex-col gap-2">
-                  <p>A Discord Bot that leverages Stripe payments for role assignment.</p>
+                  <p>
+                    A Discord Bot that leverages Stripe payments for role assignment and controlled
+                    access.
+                  </p>
                   <div class="hide-cont object-contain">
                     <img
                       class="hide hidden rounded-lg border-2 border-primary-purple"
@@ -245,11 +294,11 @@
                     Users utilize the Discord Bouncer bot to grant roles and manage customer access
                     to specific channels.
                   </p>
-                  <ul class="flex flex-wrap gap-x-8 gap-y-1 justify-end">
-                    <li class="ml-auto">Python</li>
-                    <li>Docker</li>
-                    <li>Google Cloud</li>
-                    <li>Discord</li>
+                  <ul class="flex flex-wrap gap-x-4 gap-y-2 justify-end my-2">
+                    <li class="ml-auto tag">Python</li>
+                    <li class="tag">Docker</li>
+                    <li class="tag">Google Cloud</li>
+                    <li class="tag">Discord</li>
                   </ul>
                   <div class="flex">
                     <a
@@ -267,11 +316,12 @@
             </div>
 
             <div id="azimuth">
-              <h2 class="text-2xl">Azimuth Calculator</h2>
+              <h2 class="text-2xl special-underline">Azimuth Calculator</h2>
               <div class="flex gap-2">
                 <div id="azi-desc" class="flex flex-col gap-2">
                   <p>
-                    Calculate the daily solar azimuth and associated data for a specified period.
+                    A tool that lets you calculate the daily solar azimuth and associated data for a
+                    specified period.
                   </p>
                   <div class="hide-cont object-contain">
                     <img
@@ -283,10 +333,10 @@
                     Users are able to generate a CSV file that includes the date, sunrise/sunset
                     times, and sunrise/sunset azimuth angle.
                   </p>
-                  <ul class="flex flex-wrap gap-x-8">
-                    <li>Python</li>
-                    <li>Astronomy</li>
-                    <li>CSV</li>
+                  <ul class="flex flex-wrap gap-x-4 gap-y-2 my-2">
+                    <li class="tag">Python</li>
+                    <li class="tag">Astronomy</li>
+                    <li class="tag">CSV</li>
                   </ul>
                   <div class="flex">
                     <a
@@ -356,17 +406,19 @@
       >
         <img src="./static/linkedin.svg" />
       </a>
+      <a href="mailto:jacob@murrah.dev" title="Mail">
+        <img src="./static/mail.svg" />
+      </a>
+      <a href="https://leetcode.com/u/jmurrah/" title="LeetCode" target="_blank" rel="noreferrer">
+        <img src="./static/leetcode.svg" />
+      </a>
       <a
-        id="leet-img"
-        href="https://leetcode.com/u/jmurrah/"
-        title="LeetCode"
+        href="https://buymeacoffee.com/jmurrah"
+        title="Buy Me a Coffee"
         target="_blank"
         rel="noreferrer"
       >
-        <img src="./static/leetcode.svg" />
-      </a>
-      <a href="mailto:jacob@murrah.dev" title="Mail">
-        <img src="./static/mail.svg" />
+        <img src="./static/coffee.svg" />
       </a>
       <img class="h-auto w-6" src="./static/fern-staff.png" />
     </div>
@@ -431,24 +483,6 @@
     </div>
 
     <div id="footer" class="flex flex-col text-center mt-60 mb-4">
-      <p>
-        Built with inspiration from
-        <a
-          class="text-primary-purple"
-          href="https://github.com/bchiang7/v4"
-          target="_blank"
-          rel="noreferrer"
-          >Brittany Chiang</a
-        >
-        &
-        <a
-          class="text-primary-purple"
-          href="https://github.com/wumphlett/willhumphlett"
-          target="_blank"
-          rel="noreferrer"
-          >Will Humphlett</a
-        >
-      </p>
       <p>
         Source on
         <a

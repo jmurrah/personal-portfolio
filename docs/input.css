@@ -39,12 +39,6 @@ a img:hover,
   background-color: rgba(163, 91, 255, 0.4);
 }
 
-#about li::before,
-#projects li::before {
-  content: ">";
-  color: #a35bff;
-}
-
 #about img {
   aspect-ratio: 3 / 4;
   width: 100%;
@@ -96,14 +90,19 @@ a img:hover,
   flex-shrink: 1;
   flex-grow: 0;
   width: 100%;
-  max-width: 360px;
+  max-width: 400px;
   height: auto;
 }
 
+#lre-desc,
 #disc-desc,
 #azi-desc {
   flex-shrink: 1;
   flex-grow: 0;
+}
+
+#leetcode-repetition .prj-img {
+  aspect-ratio: 1077 / 609;
 }
 
 #discord-bouncer .prj-img {
@@ -142,7 +141,7 @@ a img:hover,
   left: 0;
   bottom: 0;
   width: 0;
-  height: 1px;
+  height: 2px;
   background-color: currentColor;
   transition: width 0.15s ease-in-out;
 }
@@ -312,14 +311,39 @@ a img:hover,
   }
 }
 
-@media only screen and (max-height: 440px) {
-  #leet-img {
+@media only screen and (max-height: 485px) {
+  #wand {
     display: none;
   }
 }
 
-@media only screen and (max-height: 395px) {
-  #wand {
-    display: none;
-  }
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: theme("colors.primary-purple");
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+#projects .tag {
+  font-size: 0.75rem !important;
+}
+
+.special-underline {
+  position: relative;
+  display: inline;
+  text-decoration: underline;
+  text-decoration-color: theme("colors.primary-purple");
+  text-decoration-thickness: 3px;
+  text-underline-offset: 2px;
+  text-decoration-skip-ink: none;
+}
+
+.special-underline::after {
+  display: none;
 }

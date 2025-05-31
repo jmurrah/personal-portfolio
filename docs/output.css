@@ -596,6 +596,11 @@ video {
   margin-right: auto;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -740,10 +745,6 @@ video {
   justify-content: space-evenly;
 }
 
-.gap-1 {
-  gap: 0.25rem;
-}
-
 .gap-2 {
   gap: 0.5rem;
 }
@@ -768,22 +769,22 @@ video {
   gap: 16rem;
 }
 
+.gap-x-4 {
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+
 .gap-x-7 {
   -moz-column-gap: 1.75rem;
        column-gap: 1.75rem;
-}
-
-.gap-x-8 {
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
 }
 
 .gap-y-0 {
   row-gap: 0px;
 }
 
-.gap-y-1 {
-  row-gap: 0.25rem;
+.gap-y-2 {
+  row-gap: 0.5rem;
 }
 
 .overflow-x-hidden {
@@ -920,12 +921,6 @@ a img:hover,
   background-color: rgba(163, 91, 255, 0.4);
 }
 
-#about li::before,
-#projects li::before {
-  content: ">";
-  color: #a35bff;
-}
-
 #about img {
   aspect-ratio: 3 / 4;
   width: 100%;
@@ -977,14 +972,19 @@ a img:hover,
   flex-shrink: 1;
   flex-grow: 0;
   width: 100%;
-  max-width: 360px;
+  max-width: 400px;
   height: auto;
 }
 
+#lre-desc,
 #disc-desc,
 #azi-desc {
   flex-shrink: 1;
   flex-grow: 0;
+}
+
+#leetcode-repetition .prj-img {
+  aspect-ratio: 1077 / 609;
 }
 
 #discord-bouncer .prj-img {
@@ -1023,7 +1023,7 @@ a img:hover,
   left: 0;
   bottom: 0;
   width: 0;
-  height: 1px;
+  height: 2px;
   background-color: currentColor;
   transition: width 0.15s ease-in-out;
 }
@@ -1223,16 +1223,42 @@ a img:hover,
   }
 }
 
-@media only screen and (max-height: 440px) {
-  #leet-img {
+@media only screen and (max-height: 485px) {
+  #wand {
     display: none;
   }
 }
 
-@media only screen and (max-height: 395px) {
-  #wand {
-    display: none;
-  }
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: #a35bff;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+#projects .tag {
+  font-size: 0.75rem !important;
+}
+
+.special-underline {
+  position: relative;
+  display: inline;
+  text-decoration: underline;
+  text-decoration-color: #a35bff;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 2px;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
+.special-underline::after {
+  display: none;
 }
 
 @media (min-width: 640px) {
