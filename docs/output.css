@@ -1063,6 +1063,10 @@ a img:hover,
     max-width: 240px;
   }
 
+  #abt-desc {
+    max-width: none;
+  }
+
   #abt-img-cont {
     align-self: center;
     min-width: 0;
