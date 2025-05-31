@@ -16,12 +16,44 @@
   <body class="w-screen overflow-x-hidden flex flex-col bg-custom-background text-white">
     <div id="content" class="mx-28 px-8 flex flex-col">
       <div id="intro" class="mx-auto flex flex-col justify-center max-w-5xl h-screen">
-        <p class="text-2xl">Hello, my name is</p>
+        <p class="text-2xl mt-10">Hello, my name is</p>
         <div class="text-7xl text-primary-purple flex flex-wrap gap-x-7 gap-y-0">
           <h1>JACOB</h1>
           <h1>MURRAH</h1>
         </div>
         <p class="text-2xl">I develop full stack applications and tools.</p>
+        <div id="links" class="flex gap-5 mt-10">
+          <a href="https://github.com/jmurrah" title="GitHub" target="_blank" rel="noreferrer">
+            <img src="./static/github.svg" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jacobmurrah/"
+            title="LinkedIn"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="./static/linkedin.svg" />
+          </a>
+          <a href="mailto:jacob@murrah.dev" title="Mail">
+            <img src="./static/mail.svg" />
+          </a>
+          <a
+            href="https://leetcode.com/u/jmurrah/"
+            title="LeetCode"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="./static/leetcode.svg" />
+          </a>
+          <a
+            href="https://buymeacoffee.com/jmurrah"
+            title="Buy Me a Coffee"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="./static/coffee.svg" />
+          </a>
+        </div>
       </div>
 
       <div id="main" class="flex flex-col gap-64 max-w-4xl mx-auto">
@@ -34,8 +66,8 @@
               <p>
                 Hello! My name is <strong>Jacob</strong> and I am a
                 <strong>software engineer</strong> who desires <strong>simplicity</strong> and
-                <strong>speed</strong> in my daily life and the way I write code. I am currently a
-                student at
+                <strong>speed</strong> in my daily life and the in the way I write code. I am
+                currently a student at
                 <a
                   class="text-primary-purple"
                   href="https://www.auburn.edu/"
@@ -232,8 +264,8 @@
                     />
                   </div>
                   <p>
-                    Users complete LeetCode problems and specify when they would like to repeat them. The
-                    extension tracks repeat dates, helping users land the job they want.
+                    Users complete LeetCode problems and specify when they would like to repeat
+                    them. The extension tracks repeat dates, helping users land the job they want.
                   </p>
                   <ul class="flex flex-wrap gap-x-4 gap-y-2 my-2">
                     <li class="tag">Go</li>
@@ -441,6 +473,7 @@
         <p><span class="text-primary-purple">04.</span>Contact</p>
       </a>
       <a
+        id="resume-btn"
         class="rounded-md border-2 border-primary-purple px-3 py-2"
         href="./JacobMurrahResume.pdf"
         target="_blank"

@@ -633,6 +633,10 @@ video {
   margin-right: auto;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -968,11 +972,14 @@ a img:hover,
   color: #a35bff;
 }
 
+.prj-img {
+  width: 100% !important;
+}
+
 .prj-img-cont {
   flex-shrink: 1;
   flex-grow: 0;
-  width: 100%;
-  max-width: 400px;
+  max-width: 370px;
   height: auto;
 }
 
@@ -1047,7 +1054,7 @@ a img:hover,
   }
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 900px) {
   #abt-inner {
     flex-direction: column;
   }
@@ -1227,6 +1234,20 @@ a img:hover,
   #wand {
     display: none;
   }
+
+  #links {
+    margin-top: 20px !important;
+  }
+}
+
+@media only screen and (max-height: 340px) {
+  #wand {
+    display: none;
+  }
+
+  #links {
+    display: none;
+  }
 }
 
 .tag {
@@ -1244,6 +1265,10 @@ a img:hover,
 
 #projects .tag {
   font-size: 0.75rem !important;
+}
+
+#resume-btn:hover {
+  background-color: white !important;
 }
 
 .special-underline {
