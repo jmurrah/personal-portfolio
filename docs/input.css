@@ -349,8 +349,13 @@ a img:hover,
   font-size: 0.75rem !important;
 }
 
-#resume-btn:hover {
-  background-color: white !important;
+.resume-btn:hover {
+  background-color: theme("colors.primary-purple");
+  border-color: white;
+}
+
+.resume-btn:hover h2 {
+  color: white;
 }
 
 .special-underline {
