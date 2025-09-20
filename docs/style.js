@@ -11,7 +11,7 @@ function changeDisplayedExperience(event) {
   buttons.forEach((button) => {
     button.style.backgroundColor = "";
   });
-  descriptions.forEach((description) => (description.style.display = "hidden"));
+  descriptions.forEach((description) => (description.style.display = "none"));
 
   document.getElementById(clickedButton).style.display = "block";
   event.target.style.backgroundColor = "#a35bff";
@@ -19,14 +19,14 @@ function changeDisplayedExperience(event) {
 
 function openMenu() {
   document.getElementById("menu").style.display = "flex";
-  document.getElementById("menu-btn").style.display = "hidden";
+  document.getElementById("menu-btn").style.display = "none";
   document.getElementById("content").classList.add("blur-effect");
   document.getElementById("footer").classList.add("blur-effect");
   document.body.style.overflow = "hidden";
 }
 
 function closeMenu() {
-  document.getElementById("menu").style.display = "hidden";
+  document.getElementById("menu").style.display = "none";
   document.getElementById("menu-btn").style.display = "block";
   document.getElementById("content").classList.remove("blur-effect");
   document.getElementById("footer").classList.remove("blur-effect");
@@ -37,7 +37,7 @@ function handleResize() {
   if (window.innerWidth >= 686) {
     closeMenu();
     document.body.classList.remove("blur-effect");
-    document.getElementById("menu").style.display = "hidden";
+    document.getElementById("menu").style.display = "none";
   } else {
     document.getElementById("menu-btn").style.display = "block";
   }

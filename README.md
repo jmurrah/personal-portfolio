@@ -11,3 +11,7 @@
 </p>
 
 ![demo](https://github.com/user-attachments/assets/b6c2df0f-61f4-4cd5-b7b5-404940ced5f0)
+
+```bash
+http-server ./docs
+```
